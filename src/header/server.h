@@ -7,8 +7,7 @@ static const char *s_https_addr = "https://0.0.0.0:8001";  // HTTPS port
 static const char *s_root_dir = ".";
 
 #include "../libs/mongoose/mongoose.h"
-#include <stdlib.h>
-
+#include <json-c/json.h>
 
 // #include <curl/curl.h>
 // #include <mongoc/mongoc.h>
@@ -37,6 +36,7 @@ void	timerLogs(void *buffer) ;
 void	generateLogs(const void *buf, size_t len, void *userdata);
 // lib function
 char	*ft_strdup(const char *str);
-char	*ft_itoa(int n);
-
+void	error(char *type ,t_res *res ,char *message);
+const char	*parseBodyContet(const char *buff);
+int		parseHeaderForId(const char *buff);
 #endif

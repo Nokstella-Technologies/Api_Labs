@@ -1,6 +1,7 @@
 {
     "C_Cpp.errorSquiggles": "Enabled",
     "files.associations": {
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "mysql.h": "c"
     }
 }
