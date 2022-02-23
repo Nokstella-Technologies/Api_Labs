@@ -12,7 +12,7 @@ void	routes(struct mg_connection *c, int ev, void *ev_data, void *fn_data) {
 			mg_http_reply(c, res.status, "", "{%s}\n", res.message);
 		} else if (mg_http_match_uri(hm, "/teste")) {
 			t_res res = usersController(hm);
-			mg_http_reply(c, 200, "", "{%s}\n", hm->query.ptr);
+			mg_http_reply(c, 200, "", "{%s}\n", hm->head.ptr);
 		}else {
 			struct mg_http_serve_opts opts = {.root_dir = s_root_dir};
 			mg_http_serve_dir(c, ev_data, &opts);

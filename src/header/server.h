@@ -37,6 +37,6 @@ void	generateLogs(const void *buf, size_t len, void *userdata);
 // lib function
 char	*ft_strdup(const char *str);
 void	error(char *type ,t_res *res ,char *message);
-const char	*parseBodyContet(const char *buff);
+const char	*parseBodyContet(const char *buff, char *camp);
 int		parseHeaderForId(const char *buff);
 #endif
