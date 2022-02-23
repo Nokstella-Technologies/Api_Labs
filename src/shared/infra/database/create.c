@@ -3,8 +3,8 @@
 #include <stdlib.h>
 
 #define USER "root"
-#define HOST "172.28.221.81"
-#define PORT 3306
+#define HOST "172.19.105.35"
+#define PORT 3386
 #define PASS "mariadb"
 #define DB "42api"
 
@@ -39,7 +39,7 @@ int main(int argc, char **argv)
 	}
 	
 	if (mysql_query(con, "DROP TABLE IF EXISTS projects")) {
-      finish_with_error(con);
+		finish_with_error(con);
 	}
 	else
 	{

@@ -10,8 +10,10 @@ void	routes(struct mg_connection *c, int ev, void *ev_data, void *fn_data) {
 		} else if (mg_http_match_uri(hm, "/users")) {
 			t_res res = usersController(hm);
 			mg_http_reply(c, res.status, "", "{%s}\n", res.message);
-		} else if (mg_http_match_uri(hm, "/teste")) {
-			t_res res = usersController(hm);
+		} else if (mg_http_match_uri(hm, "/authentication")){
+			t_res res = authenticationController(hm);
+			mg_http_reply(c, 200, "", "{%s}\n", hm->head.ptr);
+		}else if (mg_http_match_uri(hm, "/teste")) {
 			mg_http_reply(c, 200, "", "{%s}\n", hm->head.ptr);
 		}else {
 			struct mg_http_serve_opts opts = {.root_dir = s_root_dir};

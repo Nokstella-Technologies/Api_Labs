@@ -1,5 +1,5 @@
 
-#include "./header/server.h"
+#include "server.h"
 
 int main(void)
 {

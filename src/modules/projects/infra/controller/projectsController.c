@@ -39,8 +39,8 @@ t_res projectsController(struct mg_http_message *hm)
 	}
 	else {
 		res.status = 500;
-		strcpy(res.message, "Error: Wrong method.");
-		MG_ERROR((":%s:%s:Create Project!", "WRONG METHOD" ,"/project"));
+		strcpy(res.message, "\"Error\": \"Wrong method\"");
+		MG_ERROR((":%s:%s:not allowed methor!", "WRONG METHOD" ,"/project"));
 		return (res);
 	}
 }

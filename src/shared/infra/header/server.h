@@ -6,11 +6,16 @@ static const char *s_http_addr = "http://0.0.0.0:8000";    // HTTP port
 static const char *s_https_addr = "https://0.0.0.0:8001";  // HTTPS port
 static const char *s_root_dir = ".";
 
-#include "../libs/mongoose/mongoose.h"
-#include <json-c/json.h>
+# include <json-c/json.h>
+# include "mongoose.h"
 
+
+// #include "l8w8jwt/encode.h"
+// #include "l8w8jwt/decode.h"
+// #include "../../../../libs/libjwt/include/jwt.h"
 // #include <curl/curl.h>
 // #include <mongoc/mongoc.h>
+
 
 typedef struct s_res
 {
@@ -24,13 +29,16 @@ void	routes(struct mg_connection *c, int ev, void *ev_data, void *fn_data);
 // Controllers
 t_res	usersController(struct mg_http_message *hm);
 t_res	projectsController(struct mg_http_message *hm);
+t_res	authenticationController(struct mg_http_message *hm);
 
 // Services
 void	projectsDeleteServices(struct mg_http_message *hm, t_res *res);
 void	projectsCreateServices(struct mg_http_message *hm, t_res *res);
 void	projectsEditServices(struct mg_http_message *hm, t_res *res);
 void	projectsFindAllServices(struct mg_http_message *hm, t_res *res);
-
+void	authenticationService(struct mg_http_message *hm, t_res *res);
+void	userCreateService(struct mg_http_message *hm, t_res *res);
+void	usersDeleteServices(struct mg_http_message *hm, t_res *res);
 // logs
 void	timerLogs(void *buffer) ;
 void	generateLogs(const void *buf, size_t len, void *userdata);
