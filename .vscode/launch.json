@@ -8,7 +8,7 @@
 			"name": "C/C++: gcc-9 Build and debug active file",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceRoot}/a.out",
+			"program": "${workspaceRoot}/server",
 			"args": [],
 			"stopAtEntry": false,
 			"cwd": "${workspaceRoot}",

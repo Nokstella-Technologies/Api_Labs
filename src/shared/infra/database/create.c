@@ -2,11 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define USER "root"
-#define HOST "172.19.105.35"
-#define PORT 3386
-#define PASS "mariadb"
-#define DB "42api"
+#include "database.h"
 
 void finish_with_error(MYSQL *con)
 {

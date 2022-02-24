@@ -1,7 +1,6 @@
 
 #include "server.h"
-
-
+#include "project.h"
 
 void projectsDeleteServices(struct mg_http_message *hm, t_res *res){
 	int id;
@@ -9,7 +8,10 @@ void projectsDeleteServices(struct mg_http_message *hm, t_res *res){
 	id = parseHeaderForId(hm->head.ptr);
 	if(id == -1)
 		return(error("header-content", res, "give me a valid id, please!"));
+	if(delProject(id) < 0)
+		return (error("database", res, "not possible to delete from database!"));
 	res->status = 200;
+	res->message = calloc(45, sizeof(char));
 	sprintf(res->message, "\"message\":\"%d have been deleted\"\n", id);
 
 }

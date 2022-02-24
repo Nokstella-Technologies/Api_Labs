@@ -6,7 +6,8 @@ static const char *s_http_addr = "http://0.0.0.0:8000";    // HTTP port
 static const char *s_https_addr = "https://0.0.0.0:8001";  // HTTPS port
 static const char *s_root_dir = ".";
 
-# include <json-c/json.h>
+# include <jansson.h>
+# include <rhonabwy.h>
 # include "mongoose.h"
 
 
@@ -16,20 +17,26 @@ static const char *s_root_dir = ".";
 // #include <curl/curl.h>
 // #include <mongoc/mongoc.h>
 
+typedef struct s_auth
+{
+	jws_t	*jws;
+	jwk_t	*jwk_key_symmetric;
+	char	*token;
+}			t_auth;
 
 typedef struct s_res
 {
 	int		status;
-	char	message[128];
+	char	message;
 }		t_res;
 
 // Routes
 void	routes(struct mg_connection *c, int ev, void *ev_data, void *fn_data);
 
 // Controllers
-t_res	usersController(struct mg_http_message *hm);
-t_res	projectsController(struct mg_http_message *hm);
-t_res	authenticationController(struct mg_http_message *hm);
+void	usersController(struct mg_http_message *hm, t_res *res);
+void	projectsController(struct mg_http_message *hm, t_res *res);
+void	authenticationController(struct mg_http_message *hm, t_res *res);
 
 // Services
 void	projectsDeleteServices(struct mg_http_message *hm, t_res *res);
@@ -44,7 +51,9 @@ void	timerLogs(void *buffer) ;
 void	generateLogs(const void *buf, size_t len, void *userdata);
 // lib function
 char	*ft_strdup(const char *str);
+char	**ft_split(char const *s, char c);
 void	error(char *type ,t_res *res ,char *message);
-const char	*parseBodyContet(const char *buff, char *camp);
+const char	*parseBodyContet(const char *buff,const char *camp);
 int		parseHeaderForId(const char *buff);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 #endif

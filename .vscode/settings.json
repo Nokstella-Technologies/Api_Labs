@@ -5,6 +5,9 @@
         "mysql.h": "c",
         "json.h": "c",
         "encode.h": "c",
-        "decode.h": "c"
+        "decode.h": "c",
+        "rhonabwy.h": "c",
+        "server.h": "c",
+        "project.h": "c"
     }
 }

@@ -1,19 +1,21 @@
 NAME = server
-HEADER = -I ./src/shared/infra/header/ -I ./libs/l8w8jwt/include/ -I ./libs/mongoose/ -I libs/l8w8jwt/lib/chillbuff/include/ -I libs/l8w8jwt/lib/checknum/include/ -I libs/l8w8jwt/lib/chillbuff/include/ -I libs/l8w8jwt/lib/jsmn/include/ -I libs/l8w8jwt/lib/chillbuff/include/ -I libs/l8w8jwt/lib/acutest/include/ -I  libs/l8w8jwt/lib/doxygen-awesone/include/ -I libs/l8w8jwt/lib/mbedtls/include/ -I  libs/l8w8jwt/lib/ed25519/include/
+HEADER = -I ./src/shared/infra/header/ -I ./src/shared/infra/database/ -I ./src/modules/*/repositories_h/ -I ./libs/mongoose/
 
 MODELS = -I ./src/modules/*/repositories/
 SRC = shared/infra/http/server.c shared/infra/http/*/*.c modules/*/*/*.c \
-	logs/GenerateLog.c shared/error/*.c modules/*/infra/*/*.c
+	logs/GenerateLog.c shared/error/*.c modules/*/infra/*/*.c json/*.c
 SRC_LOGS = Cli/logs/*.c
 LIB_MONG =  libs/mongoose/*.c libs/utils/*.c
 LIB_SQL = `mysql_config --cflags --libs`
-LIB_JSON = -I/usr/include/json-c -L/usr/lib -ljson-c
+LIB_JSON = -I/usr/include/jansson -ljansson 
 MYSQL = src/shared/infra/database/create.c
 MYSQLCHECK = src/shared/infra/database/check.c
 
 all:
-	gcc $(HEADER) $(MODELS) $(addprefix src/,$(SRC)) $(LIB_SQL) $(LIB_MONG) $(LIB_JSON) -g3 -o $(NAME) && ./$(NAME) 
+	gcc $(HEADER) $(MODELS) $(addprefix src/,$(SRC)) $(LIB_SQL) $(LIB_MONG) $(LIB_JSON) -g3 -o $(NAME)
 
+run:
+	./$(NAME)
 mysql:
 	gcc $(MYSQL) $(LIB_SQL) -o create_db
 

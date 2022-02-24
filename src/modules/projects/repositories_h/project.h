@@ -2,14 +2,19 @@
 #ifndef PROJECT_H
 #define PROJECT_H
 
-#define USER "root"
-#define HOST "172.19.105.35"
-#define PORT 3386
-#define PASS "mariadb"
-#define DB "42api"
+#include "database.h"
 
-#include <mysql/mysql.h>
+typedef struct s_project
+{
+	char *id;
+	char *name;
+	char *c;
+}			t_project;
 
-int	addProject(char *name);
+
+int addProject(char *name, t_project *project);
+int delProject (int id);
+int editProject (int id, char *name);
+int searchProject (int *id, char *name);
 
 #endif
