@@ -1,5 +1,5 @@
 
-#include "server.h"
+#include "utils.h"
 
 int	compareHash(unsigned char *Pass, unsigned char *EncryptedPass)
 {

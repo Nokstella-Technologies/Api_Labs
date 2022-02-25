@@ -72,7 +72,7 @@ int main(int argc, char **argv)
 		printf("DB: Table logs_api dropped.\n");
 	}
 	//executa a query de criar a table do log
-	if (mysql_query(con, "CREATE TABLE logs_api(id INT PRIMARY KEY AUTO_INCREMENT, method VARCHAR(255), uri VARCHAR(255), status VARCHAR(255), date VARCHAR(255), mensage VARCHAR(255))")) {
+	if (mysql_query(con, "CREATE TABLE logs_api(id INT PRIMARY KEY AUTO_INCREMENT, method VARCHAR(255), uri VARCHAR(255), status VARCHAR(255), mensage VARCHAR(255), date VARCHAR(255))")) {
 		finish_with_error(con);
 	}
 	else

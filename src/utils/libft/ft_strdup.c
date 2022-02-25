@@ -1,5 +1,4 @@
-
-#include "server.h"
+#include "utils.h"
 
 char	*ft_strdup(const char *str)
 {

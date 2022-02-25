@@ -17,7 +17,7 @@ static int addLogsDB(char **buf)
 
 	if (connect_mysql(con) < 0)
 		return(-1);
-	sprintf(query,"INSERT INTO `logs_api` VALUES(NULL, '%s', '%s','%s','%s', NOW());",buf[0],buf[1], buf[2][0] == '1'? "ERROR": "OK",buf[3]);
+	sprintf(query,"INSERT INTO `logs_api` VALUES(NULL, '%s', '%s','%s','%s', NOW());",buf[0],buf[1], buf[2][0] == '1'? "ERROR": "OK", buf[3]);
 	if(mysql_query(con, query)){
 		mysql_close(con);
 		return(-1);

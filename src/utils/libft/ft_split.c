@@ -1,5 +1,5 @@
 
-#include "server.h"
+#include "utils.h"
 
 static void		ft_fill_matrix(char const *s, char c, size_t num, char **res);
 static size_t	count_s(char const *s, char c);

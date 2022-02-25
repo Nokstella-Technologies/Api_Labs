@@ -2,9 +2,10 @@ NAME = server
 HEADER = -I ./src/includes -I ./libs/mongoose/
 
 SRC = shared/server.c shared/routes/*.c shared/middlewares/*.c \
-	utils/GenerateLog.c utils/*/*.c modules/*/*/*.c  database/connection.c
+	shared/error/*.c \utils/GenerateLog.c utils/*/*.c modules/*/*/*.c \
+	database/connection.c
 
-SRC_LOGS = Cli/logs/*.c
+SRC_LOGS = Cli/logs/clidb.c
 LIB_MONG =  libs/mongoose/*.c 
 LIB_SQL = `mysql_config --cflags --libs`
 LIB_JSON = -I/usr/include/jansson -ljansson  -lssl -lcrypto -lrhonabwy
@@ -36,5 +37,6 @@ install:
 	
 
 logs:
-	gcc $(SRC_LOGS) -o Logs
+	gcc $(SRC_LOGS) $(LIB_SQL) -o Logs -g3 && ./Logs
+
 .PHONY: install mysql all logs
