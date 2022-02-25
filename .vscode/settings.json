@@ -1,0 +1,17 @@
+{
+    "C_Cpp.errorSquiggles": "Enabled",
+    "files.associations": {
+        "stdlib.h": "c",
+        "mysql.h": "c",
+        "json.h": "c",
+        "encode.h": "c",
+        "decode.h": "c",
+        "rhonabwy.h": "c",
+        "server.h": "c",
+        "project.h": "c",
+        "users.h": "c",
+        "database.h": "c",
+        "mongoose.h": "c",
+        "functional": "c"
+    }
+}
