@@ -1,45 +1,54 @@
-c070e4 2 projectsController.c:21:projec :POST:/project:Create Project!
-8f4627 2 projectsController.c:21:projec :POST:/project:Create Project!
-a0ab01 1 projectsController.c:19:projec :POST:/project:The project dosen't created!
-a0f1d0 1 projectsController.c:19:projec :POST:/project:The project dosen't created!
-a113fc 1 projectsController.c:19:projec :POST:/project:The project dosen't created!
-a11c37 1 projectsController.c:19:projec :POST:/project:The project dosen't created!
-a11f63 1 projectsController.c:19:projec :POST:/project:The project dosen't created!
-a152a2 1 projectsController.c:19:projec :POST:/project:The project dosen't created!
-a18df2 1 projectsController.c:19:projec :POST:/project:The project dosen't created!
-a1fe36 2 projectsController.c:21:projec :POST:/project:Create Project!
-a3552d 2 projectsController.c:21:projec :POST:/project:Create Project!
-a3a1e1 2 projectsController.c:21:projec :POST:/project:Create Project!
-a6e361 1 projectsController.c:19:projec :POST:/project:The project dosen't created!
-a7717a 2 projectsController.c:21:projec :POST:/project:Create Project!
-bb1e77 2 projectsController.c:37:projec :DELETE:/project:Create Project!
-bbbe9a 2 projectsController.c:37:projec :DELETE:/project:Create Project!
-bbd579 2 projectsController.c:37:projec :DELETE:/project:Create Project!
-bc7cc9 2 projectsController.c:37:projec :DELETE:/project:Create Project!
-bc96b6 2 projectsController.c:37:projec :DELETE:/project:Create Project!
-bedb71 1 projectsController.c:35:projec :DELETE:/project:The Project was not deleted.
-ca8f04 1 projectsController.c:35:projec :DELETE:/project:The Project was not deleted.
-cb063c 2 projectsController.c:29:projec :PUT:/project:Create Project!
-ccee81 2 projectsController.c:29:projec :PUT:/project:Create Project!
-ce2eb6 2 projectsController.c:29:projec :PUT:/project:Create Project!
-ce6443 1 projectsController.c:27:projec :PUT:/project:The Project was not edited.
-cf7816 2 projectsController.c:13:projec :GET:/project:Create Project!
-dfaf27 1 projectsController.c:19:projec :POST:/project:The Project was not created.
-2f58b4 2 projectsController.c:13:projec :GET:/project:Create Project!
-2fb508 1 projectsController.c:19:projec :POST:/project:The Project was not created.
-5b90a6 2 projectsController.c:37:projec :DELETE:/project:Create Project!
-5b9597 2 projectsController.c:37:projec :DELETE:/project:Create Project!
-5b97e7 2 projectsController.c:37:projec :DELETE:/project:Create Project!
-65e0dd 2 usersController.c:24:usersCont :DELETE:/users:Deleted user!
-210f4e 2 projectsController.c:21:projec :POST:/project:Create Project!
-3aa2f2 2 projectsController.c:21:projec :POST:/project:Create Project!
-49e09a 2 projectsController.c:21:projec :POST:/project:Create Project!
-4b4c83 2 projectsController.c:21:projec :POST:/project:Create Project!
-ccda37 1 projectsController.c:19:projec :POST:/project:The Project was not created.
-1791e5d 2 projectsController.c:21:proje :POST:/project:Create Project!
-17ab214 2 projectsController.c:21:proje :POST:/project:Create Project!
-17aa95d 1 mongoose.c:3347:mg_open_liste failed http://0.0.0.0:8000, errno 98 (Address already in use)17b3798 2 projectsController.c:21:proje :POST:/project:Create Project!
-17b5c8e 2 projectsController.c:21:proje :POST:/project:Create Project!
-17e3a90 2 projectsController.c:21:proje :POST:/project:Create Project!
-19176ab 2 projectsController.c:21:proje :POST:/project:Create Project!
-1933b48 2 projectsController.c:21:proje :POST:/project:Create Project!
+1598561 2 projectsController.c:10:proje :GET:/project:2:Create Project!
+15997a2 2 projectsController.c:17:proje :POST:/project:2:Create Project!
+159a302 2 projectsController.c:31:proje :DELETE:/project:2:Create Project!
+159b80c 2 projectsController.c:24:proje :PUT:/project:2:Create Project!
+192c0a2 2 usersController.c:13:usersCon :POST:/users:2:User created!
+1d16e00 2 usersController.c:13:usersCon :POST:/users:2:User created!
+1df8682 2 authenticationController.c:13 :POST:/authentication:2:Login In!
+1e01c65 2 authenticationController.c:13 :POST:/authentication:2:Login In!
+1e08c2e 2 authenticationController.c:13 :POST:/authentication:2:Login In!
+1f3a81f 2 authenticationController.c:13 :POST:/authentication:2:Login In!
+21ef663 2 projectsController.c:17:proje :POST:/project:2:Create Project!
+221718b 2 projectsController.c:20:proje :POST:/project:2:Create Project!
+2217e5e 1 projectsController.c:18:proje :POST:/project:1:The Project was not created.
+24156b5 2 projectsController.c:10:proje :GET:/project:2:Create Project!
+241dbc8 2 projectsController.c:10:proje :GET:/project:2:Create Project!
+241efa2 2 projectsController.c:20:proje :POST:/project:2:Create Project!
+2420974 1 projectsController.c:28:proje :PUT:/project:1:The Project was not edited.
+242295d 2 projectsController.c:30:proje :PUT:/project:2:Create Project!
+2423fab 1 projectsController.c:38:proje :DELETE:/project:1:The Project was not deleted.
+24265c7 2 projectsController.c:40:proje :DELETE:/project:2:Create Project!
+2428d88 2 usersController.c:13:usersCon :POST:/users:2:User created!
+2445d7a 1 usersController.c:19:usersCon :DELETE:/users:1:Error to deleted user!.
+244791c 1 usersController.c:19:usersCon :DELETE:/users:1:Error to deleted user!.
+244b8ad 2 usersController.c:21:usersCon :DELETE:/users:2:Deleted user!
+244f5fe 2 authenticationController.c:13 :POST:/authentication:2:Login In!
+248e7b0 1 authenticationController.c:11 :POST:/authentication:1:Wrong Login.
+249218f 1 authenticationController.c:11 :POST:/authentication:1:Wrong Login.
+2495db8 1 authenticationController.c:11 :POST:/authentication:1:Wrong Login.
+24a4e7b 2 projectsController.c:30:proje :PUT:/project:2:Create Project!
+24a59a5 2 projectsController.c:30:proje :PUT:/project:2:Create Project!
+24a7efe 2 projectsController.c:40:proje :DELETE:/project:2:Create Project!
+24a85ac 2 projectsController.c:40:proje :DELETE:/project:2:Create Project!
+24d4919 2 projectsController.c:20:proje :POST:/project:2:Create Project!
+24dfd7f 2 projectsController.c:20:proje :POST:/project:2:Create Project!
+24e8e57 1 projectsController.c:38:proje :DELETE:/project:1:The Project was not deleted.
+2659b6c 1 router.c:26:routes            :PUT / HTTP/1.1
+Host: 172.23.102.75:8000
+User-Agent: insomnia/2021.7.2
+Content-Type: application/json
+Accept: */*
+Content-Length: 5
+
+{
+	
+}:/ HTTP/1.1
+Host: 172.23.102.75:8000
+User-Agent: insomnia/2021.7.2
+Content-Type: application/json
+Accept: */*
+Content-Length: 5
+
+{
+	
+}:1:NOT FOUND

@@ -1,13 +1,16 @@
 
 #include "server.h"
+#include "users.h"
 
 void usersDeleteServices(struct mg_http_message *hm, t_res *res){
 	int id;
 
 	id = parseHeaderForId(hm->head.ptr);
 	if(id == -1)
-		return(error("header-content", res, "give me a valid id, please!"));
+		return(error("header-content", res, "give me a valid id, please!",405));
+	if(delUsers(id) < 0)
+		return(error("database", res, "is not possible to delete user from database!",405));
 	res->status = 200;
+	res->message = calloc(50, sizeof(char));
 	sprintf(res->message, "\"message\":\" user %d have been deleted\"\n", id);
-
 }

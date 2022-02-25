@@ -1,9 +1,9 @@
 
 #include "server.h"
 
-void error(char *type ,t_res *res ,char *message)
+void error(char *type ,t_res *res ,char *message,int status)
 {
-	res->status = 404;
-	res->message = calloc(strlen(res) + strlen(message) + 30, sizeof(char));
+	res->status = status;
+	res->message = calloc(strlen(type) + strlen(message) + 30, sizeof(char));
 	sprintf(res->message,"\"error\":\"%s\",\"message\":\"%s\"", type, message);
 }

@@ -10,7 +10,6 @@ static const char *s_root_dir = ".";
 # include <rhonabwy.h>
 # include "mongoose.h"
 
-
 // #include "l8w8jwt/encode.h"
 // #include "l8w8jwt/decode.h"
 // #include "../../../../libs/libjwt/include/jwt.h"
@@ -27,7 +26,7 @@ typedef struct s_auth
 typedef struct s_res
 {
 	int		status;
-	char	message;
+	char	*message;
 }		t_res;
 
 // Routes
@@ -50,10 +49,16 @@ void	usersDeleteServices(struct mg_http_message *hm, t_res *res);
 void	timerLogs(void *buffer) ;
 void	generateLogs(const void *buf, size_t len, void *userdata);
 // lib function
-char	*ft_strdup(const char *str);
-char	**ft_split(char const *s, char c);
-void	error(char *type ,t_res *res ,char *message);
-const char	*parseBodyContet(const char *buff,const char *camp);
-int		parseHeaderForId(const char *buff);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
+char			*ft_strdup(const char *str);
+char			**ft_split(char const *s, char c);
+void			error(char *type ,t_res *res ,char *message,int status);
+int				parseHeaderForId(const char *buff);
+char			*ft_substr(char const *s, unsigned int start, size_t len);
+int				compareHash(unsigned char *Pass, unsigned char *EncryptedPass);
+const char		*parseBodyContet(const char *buff,const char *camp);
+unsigned char	*encrypt(unsigned char *password, int passlen);
+char			*createJWT(void);
+int				authenticated(char *token);
+char			*parseToken(const char *buff);
+
 #endif

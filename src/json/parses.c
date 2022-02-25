@@ -16,3 +16,13 @@ int		parseHeaderForId(const char *buff){
 		return(-1);
 	return(atoi(strstr(buff, "id=") + 3));
 }
+
+char	*parseToken(const char *buff)
+{
+	char *token_position;
+
+	token_position = strstr(buff, "Bearer");
+	if(token_position == NULL)
+		return(NULL);
+	return(strtok(token_position + 7, " \r"));
+}

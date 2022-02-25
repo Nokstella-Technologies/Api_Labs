@@ -8,6 +8,9 @@
         "decode.h": "c",
         "rhonabwy.h": "c",
         "server.h": "c",
-        "project.h": "c"
+        "project.h": "c",
+        "users.h": "c",
+        "database.h": "c",
+        "mongoose.h": "c"
     }
 }

@@ -1,45 +1,48 @@
-
 #include "server.h"
 
 void projectsController(struct mg_http_message *hm, t_res *res)
 {
-
 	if(strncmp(hm->method.ptr, "GET", 3) == 0) {
 		projectsFindAllServices(hm, res);
 		if(res->status >= 400)
-			MG_ERROR((":%s:%s:Unable to complete your request.", "GET", "/project"));
+			MG_ERROR((":%s:%s:%d:Unable to complete your request.", hm->method.ptr ,hm->uri.ptr ,1));
 		else
-			MG_INFO((":%s:%s:Create Project!", "GET", "/project"));
-		return (res);
+			MG_INFO((":%s:%s:%d:Create Project!", hm->method.ptr ,hm->uri.ptr ,2));
 	}
 	else if(strncmp(hm->method.ptr, "POST", 4) == 0) {
-		projectsCreateServices(hm, res);
-		if(res->status >= 400)
-			MG_ERROR((":%s:%s:The Project was not created.", "POST", "/project"));
+		if(authenticated(parseToken(hm->head.ptr)) == 0)
+			projectsCreateServices(hm, res);
 		else
-			MG_INFO((":%s:%s:Create Project!", "POST", "/project"));
-		return (res);
+			error("Auth", res, "Invalid Token!",403);
+		if(res->status >= 400)
+			MG_ERROR((":%s:%s:%d:The Project was not created.", hm->method.ptr ,hm->uri.ptr ,1));
+		else
+			MG_INFO((":%s:%s:%d:Create Project!", hm->method.ptr ,hm->uri.ptr ,2));
 	}
 	else if(strncmp(hm->method.ptr, "PUT", 3) == 0) {
-		projectsEditServices(hm, res);
-		if(res->status >= 400)
-			MG_ERROR((":%s:%s:The Project was not edited.", "PUT", "/project"));
+		if(authenticated(parseToken(hm->head.ptr)) == 0)
+			projectsEditServices(hm, res);
 		else
-			MG_INFO((":%s:%s:Create Project!", "PUT", "/project"));
-		return (res);
+			error("Auth", res, "Invalid Token!",403);
+		if(res->status >= 400)
+			MG_ERROR((":%s:%s:%d:The Project was not edited.", hm->method.ptr ,hm->uri.ptr,1));
+		else
+			MG_INFO((":%s:%s:%d:Create Project!", hm->method.ptr ,hm->uri.ptr,2));
 	}
 	else if(strncmp(hm->method.ptr, "DELETE", 6) == 0) {
-		projectsDeleteServices(hm, res);
-		if(res->status >= 400)
-			MG_ERROR((":%s:%s:The Project was not deleted.", "DELETE", "/project"));
+		if(authenticated(parseToken(hm->head.ptr)) == 0)
+			projectsDeleteServices(hm, res);
 		else
-			MG_INFO((":%s:%s:Create Project!", "DELETE", "/project"));
-		return (res);
+			error("Auth", res, "Invalid Token!", 403);
+		if(res->status >= 400)
+			MG_ERROR((":%s:%s:%d:The Project was not deleted.", hm->method.ptr ,hm->uri.ptr,1));
+		else
+			MG_INFO((":%s:%s:%d:Create Project!", hm->method.ptr ,hm->uri.ptr,2));
 	}
 	else {
-		res->status = 500;
-		strcpy(res->message, "\"Error\": \"Wrong method\"");
-		MG_ERROR((":%s:%s:not allowed methor!", "WRONG METHOD" ,"/project"));
-		return (res);
+		res->status = 405;
+		res->message = calloc(30,sizeof(char));
+		sprintf(res->message, "\"Error\": \"Wrong method\"");
+		MG_ERROR((":%s:%s:%d:not allowed methor!",hm->method.ptr ,hm->uri.ptr ,1));
 	}
 }
