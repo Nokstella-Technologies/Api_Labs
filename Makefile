@@ -1,11 +1,11 @@
 NAME = server
-HEADER = -I ./src/shared/infra/header/ -I ./src/shared/infra/database/ -I ./src/modules/users/repositories_h/  -I ./src/modules/projects/repositories_h/ -I ./libs/mongoose/
+HEADER = -I ./src/includes -I ./libs/mongoose/
 
-MODELS = -I ./src/modules/*/repositories/
-SRC = shared/infra/http/server.c shared/infra/http/*/*.c modules/*/*/*.c \
-	logs/GenerateLog.c shared/error/*.c modules/*/infra/*/*.c json/*.c shared/infra/database/connection.c
+SRC = shared/server.c shared/routes/*.c shared/middlewares/*.c \
+	utils/GenerateLog.c utils/*/*.c modules/*/*/*.c  database/connection.c
+
 SRC_LOGS = Cli/logs/*.c
-LIB_MONG =  libs/mongoose/*.c libs/utils/*.c
+LIB_MONG =  libs/mongoose/*.c 
 LIB_SQL = `mysql_config --cflags --libs`
 LIB_JSON = -I/usr/include/jansson -ljansson  -lssl -lcrypto -lrhonabwy
 MYSQL = src/shared/infra/database/create.c

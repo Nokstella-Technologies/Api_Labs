@@ -35,5 +35,5 @@ void generateLogs(const void *buf, size_t len, void *userdata)
 			printf("error");
 	}
 
-	log_message("./src/logs/logs.txt", buf);
+	log_message("./logs/logs.txt", buf);
 }

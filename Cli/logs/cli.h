@@ -1,7 +1,7 @@
 #ifndef CLI_H
 # define CLI_H
 
-# define FileLog "./src/logs/logs.txt"
+# define FileLog "./logs/logs.txt"
 # define Error 1
 # define Sucess 2
 
