@@ -8,7 +8,7 @@ SRC = shared/server.c shared/routes/*.c shared/middlewares/*.c \
 SRC_LOGS = Cli/logs/clidb.c
 LIB_MONG =  libs/mongoose/*.c 
 LIB_SQL = `mysql_config --cflags --libs`
-LIB_JSON = -I/usr/include/jansson -ljansson  -lssl -lcrypto -lrhonabwy
+LIB_JSON = -I/usr/include/jansson -ljansson -lssl -lcrypto -lrhonabwy
 MYSQL = src/database/create.c
 
 all: mysql logs
