@@ -16,11 +16,9 @@ const char *messageError)
 {
 	time_t t = time(&t);
 	if(res->status >= 400)
-		MG_ERROR((":%s:/%s:%d:%s:%s", strtok((char *)hm->method.ptr, " ") ,
-			strtok((char *)hm->uri.ptr, " /"),1, messageError, ctime(&t)));
+		MG_ERROR((":%d:%s:/%s:%d:%s:%s:",res->status, strtok((char *)hm->method.ptr, " ") ,strtok((char *)hm->uri.ptr, " /"),1, messageError, ctime(&t)));
 	else
-		MG_INFO((":%s:/%s:%d:%s:%s", strtok((char *)hm->method.ptr, " ") ,
-			strtok((char *)hm->uri.ptr, " /"),2, messageOk, ctime(&t)));
+		MG_INFO((":%d:%s:/%s:%d:%s:%s",res->status, strtok((char *)hm->method.ptr, " ") ,strtok((char *)hm->uri.ptr, " /"),2, messageOk, ctime(&t)));
 }
 
 static int addLogsDB(char **buf)
@@ -30,7 +28,7 @@ static int addLogsDB(char **buf)
 
 	if (connect_mysql(con) < 0)
 		return(-1);
-	sprintf(query,"INSERT INTO `logs_api` VALUES(NULL, '%s', '%s','%s','%s', NOW());",buf[0],buf[1], buf[2][0] == '1'? "ERROR": "OK", buf[3]);
+	sprintf(query,"INSERT INTO `logs_api` VALUES(NULL, '%s', '%s','%s','%s', NOW());",buf[1],buf[2], buf[3][0] == '1'? "ERROR": "OK", buf[0]);
 	if(mysql_query(con, query)){
 		mysql_close(con);
 		return(-1);
