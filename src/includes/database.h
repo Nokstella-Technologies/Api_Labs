@@ -11,7 +11,7 @@
 #include <arpa/inet.h>
 
 #define USER "root"
-#define HOST get_host()
+#define HOST "192.168.15.7"
 #define PORT 3306
 #define PASS "mariadb"
 #define DB "42api"
