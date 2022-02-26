@@ -15,9 +15,12 @@ all: mysql logs
 	gcc $(HEADER) $(MODELS) $(addprefix src/,$(SRC)) $(LIB_SQL) $(LIB_MONG) $(LIB_JSON) -g3 -Wall -Werror -Wextra -o $(NAME)
 
 mysql:
-	gcc $(MYSQL) $(LIB_SQL) -o create_db
+	gcc $(MYSQL) $(LIB_SQL) $(HEADER) -o create_db
 
 logs:
 	gcc $(SRC_LOGS) $(LIB_SQL) -o Logs -g3 
 
-.PHONY: install mysql all logs
+logs_old:
+	gcc Cli/logs/main.c -o logs_old 
+
+.PHONY: install mysql all logs logs_old

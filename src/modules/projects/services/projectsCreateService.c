@@ -15,13 +15,13 @@ static void reponse_format_project(t_project *project, t_res *res)
 
 void	projectsCreateServices(struct mg_http_message *hm, t_res *res)
 {
-	const char	*name;
 	t_project	project;
 
-	name = parseBodyContet(hm->body.ptr, "name");
-	if (name == NULL)
+	project.name = parseBodyContet(hm->body.ptr, "name");
+	project.lang = parseBodyContet(hm->body.ptr, "lang");
+	if (project.name == NULL || project.lang == NULL)
 		return (error("body-contet", res, "give me a name, please!", 400));
-	if (addProject((char *)name, &project) < 0)
+	if (addProject((char *)project.name, (char *)project.lang, &project) < 0)
 		return (error("database",res,"not possible to save in database!", 400));
 	reponse_format_project(&project, res);
 }

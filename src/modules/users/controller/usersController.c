@@ -8,7 +8,7 @@ void usersController(struct mg_http_message *hm, t_res *res)
 		send_log(hm, res, "User created!", "Error to create user!");
 	}
 	else if(strncmp(hm->method.ptr, "DELETE", 6) == 0) {
-		usersDeleteServices(hm, res);
+		authenticated(&usersDeleteServices,hm,res);
 		send_log(hm, res, "Deleted user!", "Error to deleted user!");
 	}
 	else {

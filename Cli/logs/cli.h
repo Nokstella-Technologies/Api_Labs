@@ -5,14 +5,21 @@
 # define Error 1
 # define Sucess 2
 # define USER "root"
-# define HOST "192.168.0.15"
+# define HOST get_host()
 # define PORT 3306
-# define PASS "db"
+# define PASS "mariadb"
 # define DB "42api"
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <netdb.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
 #include <mysql/mysql.h>
 
 typedef struct s_data {
