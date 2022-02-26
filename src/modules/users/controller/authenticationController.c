@@ -4,7 +4,6 @@
 
 void authenticationController(struct mg_http_message *hm, t_res *res)
 {
-
 	if(strncmp(hm->method.ptr, "POST", 4) == 0) {
 		authenticationService(hm, res);
 		send_log(hm,res,"Login In!","Wrong Login.");

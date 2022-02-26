@@ -1,2 +1,64 @@
 fc182b 2 GenerateLog.c:21:send_log      :200:GET:/project:Unable to complete your request.:Sat Feb 26 16:25:15 2022
 
+fd525e 2 GenerateLog.c:21:send_log      :200:GET:/project:Unable to complete your request.:Sat Feb 26 16:26:36 2022
+
+fd52cb 2 GenerateLog.c:21:send_log      :200:POST:/project:Create Project!:Sat Feb 26 16:26:36 2022
+
+fd52ee 2 GenerateLog.c:21:send_log      :200:DELETE:/project:Deleted Project!:Sat Feb 26 16:26:36 2022
+
+fd5310 1 GenerateLog.c:19:send_log      :404:DELETE:/project:The Project was not deleted.:Sat Feb 26 16:26:36 2022
+:
+fdfbda 2 GenerateLog.c:21:send_log      :200:GET:/project:Unable to complete your request.:Sat Feb 26 16:27:19 2022
+
+fdfc08 2 GenerateLog.c:21:send_log      :200:POST:/project:Create Project!:Sat Feb 26 16:27:19 2022
+
+fdfc29 1 GenerateLog.c:19:send_log      :404:DELETE:/project:The Project was not deleted.:Sat Feb 26 16:27:19 2022
+:
+fdfc4e 1 GenerateLog.c:19:send_log      :404:DELETE:/project:The Project was not deleted.:Sat Feb 26 16:27:19 2022
+:
+fdfc6f 2 GenerateLog.c:21:send_log      :200:POST:/users:User created!:Sat Feb 26 16:27:19 2022
+
+fdfc93 1 GenerateLog.c:19:send_log      :405:POST:/authentication:Wrong Login.:Sat Feb 26 16:27:19 2022
+:
+fe41a1 1 GenerateLog.c:19:send_log      :405:POST:/authentication:Wrong Login.:Sat Feb 26 16:27:37 2022
+:
+fe57df 1 GenerateLog.c:19:send_log      :405:POST:/authentication:Wrong Login.:Sat Feb 26 16:27:43 2022
+:
+fe6c27 1 GenerateLog.c:19:send_log      :400:POST:/users:Error to create user!:Sat Feb 26 16:27:48 2022
+:
+fe8b73 1 GenerateLog.c:19:send_log      :405:POST:/authentication:Wrong Login.:Sat Feb 26 16:27:56 2022
+:
+103d5aa 2 GenerateLog.c:21:send_log     :200:POST:/authentication:Login In!:Sat Feb 26 16:33:43 2022
+
+1047d22 1 GenerateLog.c:19:send_log     :405:POST:/authentication:Wrong Login.:Sat Feb 26 16:34:25 2022
+:
+1047d63 1 GenerateLog.c:19:send_log     :403:DELETE:/users:Error to deleted user!:Sat Feb 26 16:34:25 2022
+:
+1048f50 2 GenerateLog.c:21:send_log     :200:GET:/project:Unable to complete your request.:Sat Feb 26 16:34:30 2022
+
+1048f78 2 GenerateLog.c:21:send_log     :200:POST:/project:Create Project!:Sat Feb 26 16:34:30 2022
+
+1048f99 2 GenerateLog.c:21:send_log     :200:DELETE:/project:Deleted Project!:Sat Feb 26 16:34:30 2022
+
+1048fbf 1 GenerateLog.c:19:send_log     :404:DELETE:/project:The Project was not deleted.:Sat Feb 26 16:34:30 2022
+:
+1048fe1 2 GenerateLog.c:21:send_log     :200:POST:/users:User created!:Sat Feb 26 16:34:30 2022
+
+1048ffe 2 GenerateLog.c:21:send_log     :200:POST:/authentication:Login In!:Sat Feb 26 16:34:30 2022
+
+1049017 1 GenerateLog.c:19:send_log     :403:DELETE:/users:Error to deleted user!:Sat Feb 26 16:34:30 2022
+:
+104f583 2 GenerateLog.c:21:send_log     :200:GET:/project:Unable to complete your request.:Sat Feb 26 16:34:56 2022
+
+104f5ac 2 GenerateLog.c:21:send_log     :200:POST:/project:Create Project!:Sat Feb 26 16:34:56 2022
+
+104f5cf 2 GenerateLog.c:21:send_log     :200:DELETE:/project:Deleted Project!:Sat Feb 26 16:34:56 2022
+
+104f5ed 1 GenerateLog.c:19:send_log     :404:DELETE:/project:The Project was not deleted.:Sat Feb 26 16:34:56 2022
+:
+104f611 2 GenerateLog.c:21:send_log     :200:POST:/users:User created!:Sat Feb 26 16:34:56 2022
+
+104f633 2 GenerateLog.c:21:send_log     :200:POST:/authentication:Login In!:Sat Feb 26 16:34:56 2022
+
+104f653 2 GenerateLog.c:21:send_log     :200:DELETE:/users:Deleted user!:Sat Feb 26 16:34:56 2022
+
