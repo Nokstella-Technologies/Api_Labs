@@ -20,9 +20,9 @@ void	userCreateService(struct mg_http_message *hm, t_res *res)
 	user.name = parseBodyContet(hm->body.ptr, "name");
 	user.password = parseBodyContet(hm->body.ptr, "password");
 	if (user.name == NULL || user.password == NULL)
-		return (error("body-contet", res, "give me a name and a password, please!",405));
+		return (error("body-contet", res, "give me a name and a password, please!",406));
 	else if (strlen(user.password) < 6)
-		return (error("body-contet", res, "give more than 6 digits for the password, please!",405));
+		return (error("body-contet", res, "give more than 6 digits for the password, please!",406));
 	else if((encrypted_pass = encrypt((unsigned char *)user.password, strlen(user.password))) == NULL)
 		return (error("database", res, "error to encrypt!",500));
 	else if(addUsers((char *)user.name, encrypted_pass, &user) < 0)

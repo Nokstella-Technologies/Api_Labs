@@ -12,7 +12,7 @@ void usersController(struct mg_http_message *hm, t_res *res)
 		send_log(hm, res, "Deleted user!", "Error to deleted user!");
 	}
 	else {
-		res->status = 400;
+		res->status = 405;
 		res->message = calloc(20,sizeof(char));
 		sprintf(res->message, "\"Error\": \"Wrong method\"");
 		send_log(hm, res, "", "not allowed methor!");

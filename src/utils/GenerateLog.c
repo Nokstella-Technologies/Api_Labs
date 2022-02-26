@@ -15,6 +15,7 @@ void send_log(struct mg_http_message *hm, t_res *res, const char *messageOk,
 const char *messageError)
 {
 	time_t t = time(&t);
+
 	if(res->status >= 400)
 		MG_ERROR((":%d:%s:/%s:%s:%s:",res->status, strtok((char *)hm->method.ptr, " ") ,strtok((char *)hm->uri.ptr, " /"), messageError, ctime(&t)));
 	else

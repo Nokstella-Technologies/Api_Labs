@@ -20,8 +20,8 @@ void	projectsCreateServices(struct mg_http_message *hm, t_res *res)
 	project.name = parseBodyContet(hm->body.ptr, "name");
 	project.lang = parseBodyContet(hm->body.ptr, "lang");
 	if (project.name == NULL || project.lang == NULL)
-		return (error("body-contet", res, "give me a name, please!", 400));
+		return (error("body-contet", res, "give me a name, please!", 406));
 	if (addProject((char *)project.name, (char *)project.lang, &project) < 0)
-		return (error("database",res,"not possible to save in database!", 400));
+		return (error("database",res,"not possible to save in database!", 406));
 	reponse_format_project(&project, res);
 }

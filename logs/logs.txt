@@ -62,3 +62,65 @@ fe8b73 1 GenerateLog.c:19:send_log      :405:POST:/authentication:Wrong Login.:S
 
 104f653 2 GenerateLog.c:21:send_log     :200:DELETE:/users:Deleted user!:Sat Feb 26 16:34:56 2022
 
+11b4619 1 mongoose.c:3347:mg_open_liste failed http://0.0.0.0:8000, errno 98 (Address already in use)
+11b4619 1 mongoose.c:3602:mg_listen     Failed: http://0.0.0.0:8000, errno 98
+11b4619 1 mongoose.c:3347:mg_open_liste failed http://0.0.0.0:8001, errno 98 (Address already in use)
+11b4619 1 mongoose.c:3602:mg_listen     Failed: http://0.0.0.0:8001, errno 98
+11b847e 1 mongoose.c:3347:mg_open_liste failed http://0.0.0.0:8000, errno 98 (Address already in use)
+11b847e 1 mongoose.c:3602:mg_listen     Failed: http://0.0.0.0:8000, errno 98
+11b847e 1 mongoose.c:3347:mg_open_liste failed http://0.0.0.0:8001, errno 98 (Address already in use)
+11b847e 1 mongoose.c:3602:mg_listen     Failed: http://0.0.0.0:8001, errno 98
+11b8f0e 2 GenerateLog.c:21:send_log     :200:GET:/project:Unable to complete your request.:Sat Feb 26 16:59:37 2022
+
+11b8f39 2 GenerateLog.c:21:send_log     :200:POST:/project:Create Project!:Sat Feb 26 16:59:37 2022
+
+11b8f5a 2 GenerateLog.c:21:send_log     :200:DELETE:/project:Deleted Project!:Sat Feb 26 16:59:37 2022
+
+11b8f7d 1 GenerateLog.c:19:send_log     :404:DELETE:/project:The Project was not deleted.:Sat Feb 26 16:59:37 2022
+:
+11b8fa1 2 GenerateLog.c:21:send_log     :200:POST:/users:User created!:Sat Feb 26 16:59:37 2022
+
+11b8fc0 2 GenerateLog.c:21:send_log     :200:POST:/authentication:Login In!:Sat Feb 26 16:59:37 2022
+
+11b8fe5 2 GenerateLog.c:21:send_log     :200:DELETE:/users:Deleted user!:Sat Feb 26 16:59:38 2022
+
+1500ade 1 mongoose.c:3347:mg_open_liste failed http://0.0.0.0:8000, errno 98 (Address already in use)
+1500ade 1 mongoose.c:3602:mg_listen     Failed: http://0.0.0.0:8000, errno 98
+1500ade 1 mongoose.c:3347:mg_open_liste failed http://0.0.0.0:8001, errno 98 (Address already in use)
+1500ade 1 mongoose.c:3602:mg_listen     Failed: http://0.0.0.0:8001, errno 98
+1503841 1 mongoose.c:3347:mg_open_liste failed http://0.0.0.0:8000, errno 98 (Address already in use)
+1503841 1 mongoose.c:3602:mg_listen     Failed: http://0.0.0.0:8000, errno 98
+1503841 1 mongoose.c:3347:mg_open_liste failed http://0.0.0.0:8001, errno 98 (Address already in use)
+1503841 1 mongoose.c:3602:mg_listen     Failed: http://0.0.0.0:8001, errno 98
+1507b73 2 GenerateLog.c:21:send_log     :200:PUT:/project:Edit Project!:Sat Feb 26 17:57:26 2022
+
+150bbe2 1 GenerateLog.c:19:send_log     :404:PUT:/project:The Project was not edited.:Sat Feb 26 17:57:42 2022
+:
+151620b 2 GenerateLog.c:21:send_log     :200:GET:/project:Unable to complete your request.:Sat Feb 26 17:58:25 2022
+
+154dbf3 2 GenerateLog.c:21:send_log     :200:GET:/project:Unable to complete your request.:Sat Feb 26 18:02:13 2022
+
+154dc1c 2 GenerateLog.c:21:send_log     :200:POST:/project:Create Project!:Sat Feb 26 18:02:13 2022
+
+154dc3c 2 GenerateLog.c:21:send_log     :200:DELETE:/project:Deleted Project!:Sat Feb 26 18:02:13 2022
+
+154dc5c 1 GenerateLog.c:19:send_log     :404:DELETE:/project:The Project was not deleted.:Sat Feb 26 18:02:13 2022
+:
+154dc7e 2 GenerateLog.c:21:send_log     :200:POST:/users:User created!:Sat Feb 26 18:02:13 2022
+
+154dca2 2 GenerateLog.c:21:send_log     :200:POST:/authentication:Login In!:Sat Feb 26 18:02:13 2022
+
+154dcc5 2 GenerateLog.c:21:send_log     :200:DELETE:/users:Deleted user!:Sat Feb 26 18:02:13 2022
+
+154f4b7 2 GenerateLog.c:21:send_log     :200:PUT:/project:Edit Project!:Sat Feb 26 18:02:19 2022
+
+17dee4d 2 GenerateLog.c:22:send_log     :200:GET:/project:Unable to complete your request.:Sat Feb 26 18:47:04 2022
+
+17e4a74 2 GenerateLog.c:22:send_log     :200:GET:/project:Unable to complete your request.:Sat Feb 26 18:47:28 2022
+
+17eac2f 2 GenerateLog.c:22:send_log     :200:GET:/project:Unable to complete your request.:Sat Feb 26 18:47:53 2022
+
+17ede3d 2 GenerateLog.c:22:send_log     :200:GET:/project:Unable to complete your request.:Sat Feb 26 18:48:06 2022
+
+17f0b26 2 GenerateLog.c:22:send_log     :200:GET:/project:Unable to complete your request.:Sat Feb 26 18:48:17 2022
+

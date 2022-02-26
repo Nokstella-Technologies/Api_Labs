@@ -50,15 +50,15 @@ int delProject (int id)
 	return(0);
 }
 
-int editProject (int id, char *name, t_project *project)
+int editProject (int id, char *name ,char *lang, t_project *project)
 {
 	MYSQL *con = mysql_init(NULL);
-	char query[100];
+	char query[150];
 	MYSQL_ROW row;
 	
 	if (connect_mysql(con) < 0)
 		return(-1);
-	sprintf(query, "UPDATE `projects` SET `name` = \"%s\" WHERE `projects`.`id` = %d;", name, id);
+	sprintf(query, "UPDATE `projects` SET `name` = \"%s\", `lang` = \"%s\" WHERE `projects`.`id` = %d;", name, lang, id);
 	if(mysql_query(con, query)){
 		mysql_close(con);
 		return(1);

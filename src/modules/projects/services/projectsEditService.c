@@ -15,14 +15,16 @@ static void reponse_format_project(t_project *project, t_res *res)
 
 void	projectsEditServices(struct mg_http_message *hm, t_res *res){
 	const char *name;
+	const char *lang;
 	int			id;
 	t_project project;
 
 	name = parseBodyContet(hm->body.ptr, "name");
+	lang = parseBodyContet(hm->body.ptr, "lang");
 	id = parseHeaderForId(hm->head.ptr, "/project/");
 	if (id == -1 || name == NULL)
-		return (error("header-content", res, "give me a valid id and a name, please!", 400));
-	if(editProject(id, (char *)name, &project))
-		return (error("database", res, "not possible to edit data on database!", 404));
+		return (error("header-content", res, "give me a valid id and a name, please!", 406));
+	if(editProject(id, (char *)name,(char *) lang, &project))
+		return (error("database", res, "not possible to edit data on database!", 500));
 	reponse_format_project(&project, res);
 }

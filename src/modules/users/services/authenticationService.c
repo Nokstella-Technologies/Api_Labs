@@ -25,14 +25,14 @@ void	authenticationService(struct mg_http_message *hm, t_res *res)
 	user.name = parseBodyContet(hm->body.ptr, "name");
 	password = parseBodyContet(hm->body.ptr, "password");
 	if (user.name  == NULL || password== NULL)
-		return (error("body-contet", res, "give me a name and a password, please!",405));
+		return (error("body-contet", res, "give me a name and a password, please!", 406));
 	else if (strlen(password) < 6)
-		return (error("body-contet", res, "give more than 6 digits for the password, please!",405));
+		return (error("body-contet", res, "give more than 6 digits for the password, please!",406));
 	if (findUser(user.name, &user) < 0)
-		return (error("body-content", res, "Password or User Wrong!",405));
+		return (error("body-content", res, "Password or User Wrong!", 406));
 	if (compareHash((unsigned char *)password, (unsigned char *)user.password) < 0)
-		return (error("body-content", res, "Password or User Wrong!",405));
+		return (error("body-content", res, "Password or User Wrong!", 406));
 	if((token = createJWT()) == NULL)
-		return (error("internal", res, "Impossible to create JWT!",500));
+		return (error("internal", res, "Impossible to create JWT!", 407));
 	formatResponseAuth(res, &user, token);
 }

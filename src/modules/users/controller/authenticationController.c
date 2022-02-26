@@ -1,5 +1,4 @@
 
-
 #include "server.h"
 
 void authenticationController(struct mg_http_message *hm, t_res *res)

@@ -1,14 +1,15 @@
-
 #include "server.h"
-
 
 static void response(struct mg_connection *c,t_res *res)
 {
-		mg_http_reply(c, res->status, 
-			"Content-Type: application/json\n"
-			"charset: utf-8\n""Connection: keep-alive\n",
-			"{%s}\n", res->message);
-		free(res->message);
+	char header[200];
+	time_t t = time(&t);
+
+	sprintf(header, "HTTP/1.1: %d %s\n""Content-Type: application/json\n"
+		"charset: utf-8\n""Connection: keep-alive\n""Data: %s", res->status, res->status == 200 ? S200 : res->status == 400 ? S400 :res->status == 404 ? S404 :res->status == 405 ? S405 :res->status == 406 ? S406 :res->status == 407 ? S407 : S500, ctime(&t));
+	mg_http_reply(c, res->status, (const char *)header,
+		"{%s}\n", res->message);
+	free(res->message);
 }
 
 void	routes(struct mg_connection *c, int ev, void *ev_data, void *fn_data) {
@@ -36,7 +37,7 @@ void	routes(struct mg_connection *c, int ev, void *ev_data, void *fn_data) {
 			authenticationController(hm, &res);
 			response(c, &res);
 		}
-		else{
+		else {
 			MG_ERROR((":%s:/%s:%d:NOT FOUND",
 				strtok((char *)hm->method.ptr, " ") ,strtok((char *)hm->uri.ptr, " /"), 1));
 			error("error", &res, "NOT FOUND!", 404);
