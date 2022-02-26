@@ -1,13 +1,14 @@
 #ifndef SERVER_H
 # define SERVER_H
 
-#define S200 "Ok"
-#define S400 "Bad Request"
-#define S404 "Not Found"
-#define S405 "Method Not Allowed"
-#define S406 "Not Acceptable"
-#define S407 "Proxy Authentication Required"
-#define S500 "Internal Server"
+# define S200 "Ok"
+# define S400 "Bad Request"
+# define S404 "Not Found"
+# define S405 "Method Not Allowed"
+# define S406 "Not Acceptable"
+# define S407 "Proxy Authentication Required"
+# define S500 "Internal Server"
+# define RESP "\"Message\":\"Welcome to the 42 portfolio API\",\"routes\":[{\"uri:\":\"/projects\", \"method\":[\"GET\",\"POST\",\"DELETE\",\"PUT\"]},{\"uri:\":\"/authentication\",\"method\":[\"POST\"]},{\"uri:\":\"/users\",\"method\":[\"POST\",\"DELETE\"]}]\n"
 
 /**
  * @brief this a library for http https calls in C.

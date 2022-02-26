@@ -1,9 +1,4 @@
-#include <mysql/mysql.h>
-#include <stdio.h>
-#include <stdlib.h>
-
 #include "database.h"
-
 
 void finish_with_error(MYSQL *con)
 {
