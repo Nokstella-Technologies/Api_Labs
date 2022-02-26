@@ -12,6 +12,7 @@
         "users.h": "c",
         "database.h": "c",
         "mongoose.h": "c",
-        "functional": "c"
+        "functional": "c",
+        "io.h": "c"
     }
 }

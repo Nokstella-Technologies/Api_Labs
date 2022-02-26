@@ -10,6 +10,17 @@ static void log_message(const char *filename, const char *message) {
 	}
 }
 
+void send_log(struct mg_http_message *hm, t_res *res, const char *messageOk,
+const char *messageError)
+{
+	if(res->status >= 400)
+		MG_ERROR((":%s:/%s:%d:%s", strtok((char *)hm->method.ptr, " ") ,
+			strtok((char *)hm->uri.ptr, " /"),1, messageError));
+	else
+		MG_INFO((":%s:/%s:%d:%s", strtok((char *)hm->method.ptr, " ") ,
+			strtok((char *)hm->uri.ptr, " /"),2, messageOk));
+}
+
 static int addLogsDB(char **buf)
 {
 	MYSQL *con = mysql_init(NULL);
@@ -23,6 +34,7 @@ static int addLogsDB(char **buf)
 		return(-1);
 	}
 	mysql_close(con);
+	return (0);
 }
 
 void generateLogs(const void *buf, size_t len, void *userdata)
@@ -31,8 +43,8 @@ void generateLogs(const void *buf, size_t len, void *userdata)
 	char *buf2 = (char *)buf;
 	if(*buf2 == ':')
 	{
-		if(addLogsDB(ft_split(buf2, ':')) < 0);
-			printf("error");
+		if(addLogsDB(ft_split(buf2, ':')) < 0)
+			printf("error %ld\n", len);
 	}
 
 	log_message("./logs/logs.txt", buf);

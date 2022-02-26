@@ -35,7 +35,7 @@
 			"type": "cppdbg",
 			"request": "launch",
 			"program": "${workspaceRoot}/Logs",
-			"args": ["asd"],
+			"args": ["-list", "-method=POST"],
 			"stopAtEntry": false,
 			"cwd": "${workspaceRoot}",
 			"environment": [],

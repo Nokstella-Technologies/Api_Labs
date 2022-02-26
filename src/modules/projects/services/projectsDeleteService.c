@@ -5,7 +5,7 @@
 void projectsDeleteServices(struct mg_http_message *hm, t_res *res){
 	int id;
 
-	id = parseHeaderForId(hm->head.ptr);
+	id = parseHeaderForId(hm->uri.ptr, "/project/");
 	if (id == -1)
 		return(error("header-content", res, "give me a valid id, please!", 400));
 	if (delProject(id) < 0)

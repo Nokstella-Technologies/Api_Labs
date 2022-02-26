@@ -6,23 +6,19 @@
 
 void finish_with_error(MYSQL *con)
 {
-  fprintf(stderr, "%s\n", mysql_error(con));
-  mysql_close(con);
-  exit(1);
+	fprintf(stderr, "%s\n", mysql_error(con));
+	mysql_close(con);
+	exit(1);
 }
 
 int main(int argc, char **argv)
 {
-	//conecta na db
 	MYSQL *con = mysql_init(NULL);
-
 	if (con == NULL)
 	{
 		fprintf(stderr, "%s\n", mysql_error(con));
 		exit(1);
-	}	
-
-	//infos de logins, passar pra define
+	}
 	if (mysql_real_connect(con, HOST, USER, PASS, DB, PORT, NULL, CLIENT_MULTI_STATEMENTS) == NULL)
 	{
 		fprintf(stderr, "%s\n", mysql_error(con));
@@ -33,7 +29,6 @@ int main(int argc, char **argv)
 	{
 		printf("DB: Connected.\n");
 	}
-	
 	if (mysql_query(con, "DROP TABLE IF EXISTS projects")) {
 		finish_with_error(con);
 	}

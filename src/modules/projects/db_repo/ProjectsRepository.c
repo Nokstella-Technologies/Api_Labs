@@ -20,7 +20,6 @@ int addProject(char *name, t_project *project)
 		return(-1);
 	}
 	MYSQL_ROW row;
-	MYSQL_FIELD *line = mysql_fetch_field(result);
 	while((row = mysql_fetch_row(result))) {
 		project->id = ft_strdup(row[0]);
 		project->name = ft_strdup(row[1]);
@@ -39,12 +38,12 @@ int delProject (int id)
 	if (connect_mysql(con) < 0)
 		return(-1);
 	sprintf(query, "DELETE FROM `projects` WHERE `projects`.`id` = %d;", id);
-	if(mysql_query(con, query)){
+	if (mysql_query(con, query)) {
 		mysql_close(con);
-		return(1);
+		return(-1);
 	}
-	MYSQL_RES *result = mysql_store_result(con);
-	if	(result == NULL ) {
+	uint64_t result = mysql_affected_rows(con);
+	if	(result <= 0) {
 		return(-1);
 	}
 	mysql_close(con);
@@ -55,6 +54,7 @@ int editProject (int id, char *name, t_project *project)
 {
 	MYSQL *con = mysql_init(NULL);
 	char query[100];
+	MYSQL_ROW row;
 	
 	if (connect_mysql(con) < 0)
 		return(-1);
@@ -69,8 +69,6 @@ int editProject (int id, char *name, t_project *project)
 	if	(result == NULL) {
 		return(-1);
 	}
-	MYSQL_ROW row;
-	MYSQL_FIELD *line = mysql_fetch_field(result);
 	while((row = mysql_fetch_row(result))) {
 		project->id = ft_strdup(row[0]);
 		project->name = ft_strdup(row[1]);
@@ -84,7 +82,6 @@ int editProject (int id, char *name, t_project *project)
 int searchProject (t_res *res)
 {
 	MYSQL *con = mysql_init(NULL);
-	char query[100];
 
 	if (connect_mysql(con) < 0)
 		return(-1);
@@ -98,25 +95,7 @@ int searchProject (t_res *res)
 		mysql_close(con);
 		return(-1);
 	}
-	int num_fields = mysql_num_fields(result);
-	MYSQL_ROW row;
-	char *tmp;
-	res->message = calloc(9, sizeof(char));
-	sprintf(res->message, "\"data\":[");
-	for (int i = 0;(row = mysql_fetch_row(result)); i++)
-	{
-		tmp = calloc(strlen(row[0]) + strlen(row[1])+ strlen(row[2]) + strlen(res->message) + 32, sizeof(char));
-		if(i == 0)
-			sprintf(tmp,"%s{\"id\":\"%s\",\"name\":\"%s\",\"lang\":\"%s\"}", res->message,row[0], row[1], row[2]);
-		else
-			sprintf(tmp,"%s,{\"id\":\"%s\",\"name\":\"%s\",\"lang\":\"%s\"}", res->message,row[0], row[1], row[2]);
-		free(res->message);
-		res->message = tmp;
-	}
-	tmp = calloc(strlen(res->message) + 2, sizeof(char));
-	sprintf(tmp, "%s]", res->message);
-	free(res->message);
-	res->message = tmp;
+	format_search(result, res);
 	mysql_free_result(result);
 	mysql_close(con);
 	return(0);

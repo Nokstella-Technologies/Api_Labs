@@ -1,20 +1,23 @@
 
 #include "utils.h"
 
-const char	*parseBodyContet(const char *buff,const char *camp)
+char	*parseBodyContet(const char *buff,const char *camp)
 {
 	json_t *parsed_json;
 	json_t *name;
 	json_error_t error;
 	parsed_json = json_loads(buff, 0, &error);
 	name = json_object_get(parsed_json, camp);
-	return(json_string_value(name));
+	return((char *)json_string_value(name));
 }
 
-int		parseHeaderForId(const char *buff){
-	if(strstr(buff, "id=") == NULL)
+int		parseHeaderForId(const char *buff, const char *search){
+	const char *tmp;
+	
+	tmp = strstr(buff, search);
+	if(tmp == NULL)
 		return(-1);
-	return(atoi(strstr(buff, "id=") + 3));
+	return(atoi(tmp + strlen(search)));
 }
 
 char	*parseToken(const char *buff)

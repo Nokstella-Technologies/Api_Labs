@@ -8,10 +8,10 @@
 
 char			*ft_strdup(const char *str);
 char			**ft_split(char const *s, char c);
-int				parseHeaderForId(const char *buff);
+int				parseHeaderForId(const char *buff, const char *search);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 int				compareHash(unsigned char *Pass, unsigned char *EncryptedPass);
-const char		*parseBodyContet(const char *buff,const char *camp);
+char			*parseBodyContet(const char *buff,const char *camp);
 unsigned char	*encrypt(unsigned char *password, int passlen);
 char			*createJWT(void);
 char			*parseToken(const char *buff);

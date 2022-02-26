@@ -2,10 +2,6 @@
 #ifndef SERVER_H
 # define SERVER_H
 
-static const char *s_http_addr = "http://0.0.0.0:8000";    // HTTP port
-static const char *s_https_addr = "https://0.0.0.0:8001";  // HTTPS port
-static const char *s_root_dir = ".";
-
 # include "mongoose.h"
 # include "utils.h"
 
@@ -36,6 +32,9 @@ void	generateLogs(const void *buf, size_t len, void *userdata);
 // lib function
 
 void			error(char *type ,t_res *res ,char *message,int status);
-int				authenticated(char *token);
+void	authenticated(void (service) (struct mg_http_message *, t_res *),
+	struct mg_http_message *hm, t_res *res);
+void			send_log(struct mg_http_message *hm, t_res *res,
+	const char *messageOk, const char *messageError);
 
 #endif

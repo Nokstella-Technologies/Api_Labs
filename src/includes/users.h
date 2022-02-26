@@ -11,7 +11,7 @@ typedef struct s_users{
 }			t_users;
 
 int addUsers(char *name, unsigned char *password, t_users *users);
-int findUser(char *name, char *password, t_users *users);
+int findUser(char *name, t_users *users);
 int delUsers(int id);
 
 #endif

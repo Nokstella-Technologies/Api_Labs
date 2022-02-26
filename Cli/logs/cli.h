@@ -7,7 +7,7 @@
 # define USER "root"
 # define HOST "192.168.0.15"
 # define PORT 3306
-# define PASS "mariadb"
+# define PASS "db"
 # define DB "42api"
 
 #include <stdlib.h>
@@ -45,7 +45,7 @@ typedef struct s_unix {
 	char	*method;
 	char	*routes;
 	char	*data;
-	int		*status;
+	char	*status;
 	int		list;
 }			t_unix;
 

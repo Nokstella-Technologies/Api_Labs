@@ -5,7 +5,7 @@
 void usersDeleteServices(struct mg_http_message *hm, t_res *res){
 	int id;
 
-	id = parseHeaderForId(hm->head.ptr);
+	id = parseHeaderForId(hm->head.ptr, "/users/");
 	if(id == -1)
 		return(error("header-content", res, "give me a valid id, please!",405));
 	if(delUsers(id) < 0)

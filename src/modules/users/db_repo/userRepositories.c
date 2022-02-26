@@ -20,7 +20,6 @@ int addUsers(char *name, unsigned char *password, t_users *users)
 		return(-1);
 	}
 	MYSQL_ROW row;
-	MYSQL_FIELD *line = mysql_fetch_field(result);
 	while((row = mysql_fetch_row(result))) {
 		users->id = ft_strdup(row[0]);
 		users->name = ft_strdup(row[1]);
@@ -41,17 +40,22 @@ int delUsers(int id)
 	sprintf(query, "DELETE FROM `users` WHERE `users`.`id` = %d;", id);
 	if(mysql_query(con, query)){
 		mysql_close(con);
-		return(1);
+		return(-1);
+	}
+	uint64_t result = mysql_affected_rows(con);
+	if	(result <= 0) {
+		return(-1);
 	}
 	mysql_close(con);
 	return(0);
 }
 
-int findUser(char *name, char *password, t_users *users)
+int findUser(char *name, t_users *users)
 {
 	char query[100];
 	MYSQL *con = mysql_init(NULL);
-
+	MYSQL_ROW row;
+	
 	if (connect_mysql(con) < 0)
 		return(-1);
 	sprintf(query, "SELECT * FROM `users` WHERE user = \"%s\";", name);
@@ -63,8 +67,6 @@ int findUser(char *name, char *password, t_users *users)
 	if	(result == NULL) {
 		return(-1);
 	}
-	MYSQL_ROW row;
-	MYSQL_FIELD *line = mysql_fetch_field(result);
 	while((row = mysql_fetch_row(result))) {
 		users->id = ft_strdup(row[0]);
 		users->name = ft_strdup(row[1]);
