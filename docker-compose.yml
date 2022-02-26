@@ -1,0 +1,16 @@
+services:
+  db:
+    image: mariadb
+    ports:
+     - 3306:3306
+     
+    environment:
+      MARIADB_RANDOM_ROOT_PASSWORD: "no"
+      MARIADB_ROOT_PASSWORD: "mariadb"
+      MARIADB_USER: "mariadbteste"
+      MARIADB_PASSWORD: "mariadb"
+    restart: "always"
+  api:
+    image: apilabs
+    depends_on:
+      - db
