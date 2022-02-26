@@ -11,13 +11,13 @@
 #include <arpa/inet.h>
 
 #define USER "root"
-#define HOST "192.168.0.15"
+#define HOST "198.167.0.1"
 #define PORT 3306
 #define PASS "mariadb"
 #define DB "42api"
 
 #include <mysql/mysql.h>
 
-char *get_host();
+int connect_mysql(MYSQL *con);
 
 #endif
