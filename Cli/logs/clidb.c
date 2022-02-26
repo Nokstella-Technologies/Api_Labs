@@ -143,7 +143,7 @@ void errorUnixArgv(void)
 	printf("Invalid option use this:\n\n\t\t-route=/(...)\
 			\n\n\t\t-method=GET or POST or PUT or DELETE\
 			\n\n\t\t-data=yyyy-mm-dd\
-			\n\n\t\t-status=ERROR or OK\
+			\n\n\t\t-status=number of return\
 			\n\n\t\t-list (to list all logs without this they will count!)\n");
 	exit(1);
 }
@@ -160,9 +160,6 @@ void verify_argv(int argc, char **argv, t_unix *parse)
 			parse->data = strstr(argv[a], "=") + 1;
 		else if(strncmp(argv[a],"-status=", 8)  == 0){
 			parse->status = strstr(argv[a], "=") + 1;
-			if (strcmp(parse->status,"OK")  != 0 &&
-				strcmp(parse->status,"ERROR")  != 0)
-				errorUnixArgv();
 		}
 		else if(strncmp(argv[a],"-list", 5)  == 0)
 			parse->list = 1;
