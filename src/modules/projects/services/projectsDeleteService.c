@@ -12,6 +12,6 @@ void projectsDeleteServices(struct mg_http_message *hm, t_res *res){
 		return (error("database", res, "not possible to delete from database!", 404));
 	res->status = 200;
 	res->message = calloc(45, sizeof(char));
-	sprintf(res->message, "\"message\":\"%d have been deleted\"\n", id);
+	sprintf(res->message, "\"message\":\"project id %d have been deleted\"\n", id);
 
 }

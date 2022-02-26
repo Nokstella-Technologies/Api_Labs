@@ -1,14 +1,14 @@
 #include "project.h"
 #include "server.h"
 
-int addProject(char *name, t_project *project)
+int addProject(char *name, char *lang, t_project *project)
 {
 	char query[100];
 	MYSQL *con = mysql_init(NULL);
 
 	if (connect_mysql(con) < 0)
 		return(-1);
-	sprintf(query, "INSERT INTO `projects` VALUES(NULL, '%s', 'c');", name);
+	sprintf(query, "INSERT INTO `projects` VALUES(NULL, '%s', '%s');", name, lang);
 	if(mysql_query(con, query)){
 		mysql_close(con);
 		return(-1);

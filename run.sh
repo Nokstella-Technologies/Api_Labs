@@ -1,4 +1,3 @@
-#!bin/bash
-
+#!/bin/sh
 ./create_db
 ./server

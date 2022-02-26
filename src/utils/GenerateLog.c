@@ -1,5 +1,6 @@
 #include "server.h"
 #include "database.h"
+#include <time.h>
 
 static void log_message(const char *filename, const char *message) {
 	FILE *fp = fopen(filename, "a");
@@ -13,12 +14,13 @@ static void log_message(const char *filename, const char *message) {
 void send_log(struct mg_http_message *hm, t_res *res, const char *messageOk,
 const char *messageError)
 {
+	time_t t = time(&t);
 	if(res->status >= 400)
-		MG_ERROR((":%s:/%s:%d:%s", strtok((char *)hm->method.ptr, " ") ,
-			strtok((char *)hm->uri.ptr, " /"),1, messageError));
+		MG_ERROR((":%s:/%s:%d:%s:%s", strtok((char *)hm->method.ptr, " ") ,
+			strtok((char *)hm->uri.ptr, " /"),1, messageError, ctime(&t)));
 	else
-		MG_INFO((":%s:/%s:%d:%s", strtok((char *)hm->method.ptr, " ") ,
-			strtok((char *)hm->uri.ptr, " /"),2, messageOk));
+		MG_INFO((":%s:/%s:%d:%s:%s", strtok((char *)hm->method.ptr, " ") ,
+			strtok((char *)hm->uri.ptr, " /"),2, messageOk, ctime(&t)));
 }
 
 static int addLogsDB(char **buf)

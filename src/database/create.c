@@ -4,6 +4,19 @@
 
 #include "database.h"
 
+char *get_host()
+{
+	char	hostbuffer[256];
+	char	*IPbuffer;
+	struct	hostent *host_entry;
+	int		hostname;
+
+	hostname = gethostname(hostbuffer, sizeof(hostbuffer));
+	host_entry = gethostbyname(hostbuffer);
+	IPbuffer = inet_ntoa(*((struct in_addr*)host_entry->h_addr_list[0]));
+	return(IPbuffer);
+}
+
 void finish_with_error(MYSQL *con)
 {
 	fprintf(stderr, "%s\n", mysql_error(con));

@@ -20,4 +20,7 @@ mysql:
 logs:
 	gcc $(SRC_LOGS) $(LIB_SQL) -o Logs -g3 
 
-.PHONY: install mysql all logs
+logs_old:
+	gcc Cli/logs/main.c -o logs_old 
+
+.PHONY: install mysql all logs logs_old
