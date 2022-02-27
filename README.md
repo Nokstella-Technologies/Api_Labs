@@ -147,47 +147,43 @@ The server logs can be accessed via the `ada` command line interface. This step 
 
 This step assumes that you already have the [server running in a docker container](#how-to-run).
 
-Execute `ada` commands through the docker interface:
+Execute `Logs` commands through the docker interface:
 
 ```sh
-docker exec -it feminist_api ada --help
+docker exec -it feminist_api Logs --help
 ```
 
 You can also make an alias for that, to make this process easier:
 
 ```sh
-alias ada="docker exec -it feminist_api ada"
+alias Logs="docker exec -it feminist_api Logs"
 ```
 
-Now you can run the CLI as if you were running it from your own terminal:
+Or you can use our other Cli thats use the Database logs for the Cli, this have more option to see the logs.
 
 ```sh
-ada --help
+docker exec -it feminist_api Logs2 --help
+# and create a alias out of the docker 
+alias Logs2="docker exec -it feminist_api Logs2"
 ```
 
 ### Running the CLI locally
 
 This step assumes that you followed the [how to develop](#how-to-develop) guide.
 
-Update your path with the current directory if you don't have it already:
-
 ```sh
-export PATH=$PATH:$(pwd)
+# inside of the repository folder
+make logs_local
+
+#this will create the to types of logs then you choose yours 
+./Logs
+# or
+./Logs2
 ```
-
-Simply execute any CLI interaction by using the `ada` command.
-
-```sh
-# e.g. get help from the CLI
-ada --help
-```
-
-## Install the program
-
-- It is also possible to install the program with `make install`. This will add the `feminist_api` server and the `ada` CLI to the `/usr/local/bin` directory permanently.
 
 ## Contribute
 
+This project was made by [Luiz](https://github.com/luizlcezario), [Van Antonnie](https://github.com/Face-Tattoo/Api_Labs/commits?author=VanAntonietti) and [Paulo](https://github.com/Yaten/Yaten)
 Enjoyed the application? Please, consider contributing to the project.
 
 ## License
