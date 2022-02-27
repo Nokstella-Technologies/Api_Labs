@@ -1,4 +1,0 @@
-ab5239 1 mongoose.c:3347:mg_open_listen failed http://0.0.0.0:8000, errno 98 (Address already in use)
-ab5239 1 mongoose.c:3602:mg_listen      Failed: http://0.0.0.0:8000, errno 98
-ab5239 1 mongoose.c:3347:mg_open_listen failed http://0.0.0.0:8001, errno 98 (Address already in use)
-ab5239 1 mongoose.c:3602:mg_listen      Failed: http://0.0.0.0:8001, errno 98
