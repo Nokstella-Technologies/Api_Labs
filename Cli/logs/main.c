@@ -27,18 +27,22 @@ static void filter(char *data, t_routes *routes, char **splited)
 int main(int argc, char **argv)
 {
 	FILE *logs = fopen(FileLog, "r");
-	char data[300];
+	char *data;
 	t_routes routes;
 	char **splited = NULL;
 
 	if (argc < 2)
 	{
 		printf("-------------------------------------------------------------------------------------------------\n|\t%-10s\t|\t%-10s\t|\t%-10s\t|\t%-10s\t|\n-------------------------------------------------------------------------------------------------\n","Mehod","HTTP uri","status", "data");
+		data = calloc(160, sizeof(char));
 		while(!feof(logs)){
-			fgets(data, 300, logs);
-			filter(data, &routes, splited);
-			memset(data, 0, 300);
-			printf("|\t%-10s\t|\t%-10s\t|\t%-10s\t|\t%-10s\t|\n-------------------------------------------------------------------------------------------------\n", routes.method, routes.uri, routes.status , routes.data);
+
+			fgets(data, 160, logs);
+			if(strlen(data) > 10){
+				filter(data, &routes, splited);
+				printf("|\t%-10s\t|\t%-10s\t|\t%-10s\t|\t%-10s\t|\n-------------------------------------------------------------------------------------------------\n", routes.method, routes.uri, routes.status , routes.data);
+			}
+			memset(data, 0, 160);
 		}
 	}
 	return(0);
