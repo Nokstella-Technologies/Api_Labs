@@ -34,7 +34,7 @@ install:
 	sudo apt install -y libcurl4-gnutls-dev libmicrohttpd-dev openssl net-tools default-libmysqlclient-dev && cd libs && mkdir jansson && cd jansson && wget https://github.com/akheron/jansson/releases/download/v2.14/jansson-2.14.tar.gz && tar -xf jansson-2.14.tar.gz && cd jansson-2.14 && ./configure && make && make install && cd .. && cd .. && rm -rf jansson && cd rhonabwy && dpkg -i liborcania-dev_2.2.1_ubuntu_focal_x86_64.deb && dpkg -i libyder-dev_1.4.14_ubuntu_focal_x86_64.deb && dpkg -i libulfius-dev_2.7.6_ubuntu_focal_x86_64.deb && dpkg -i librhonabwy-dev_1.1.2_ubuntu_focal_x86_64.deb && cd .. && cd .. && make && apt update && apt upgrade -y
 
 clean:
-	rm server create_db Logs ./Cli/Logs
+	rm server create_db Logs Logs2 ./Cli/Logs ./Cli/Logs2
 
 re: clean make
 
