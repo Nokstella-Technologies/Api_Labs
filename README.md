@@ -150,21 +150,21 @@ This step assumes that you already have the [server running in a docker containe
 Execute `Logs` commands through the docker interface:
 
 ```sh
-docker exec -it feminist_api Logs --help
+docker exec -it 42api Logs --help
 ```
 
 You can also make an alias for that, to make this process easier:
 
 ```sh
-alias Logs="docker exec -it feminist_api Logs"
+alias Logs="docker exec -it 42api Logs"
 ```
 
 Or you can use our other Cli thats use the Database logs for the Cli, this have more option to see the logs.
 
 ```sh
-docker exec -it feminist_api Logs2 --help
+docker exec -it 42api Logs2 --help
 # and create a alias out of the docker 
-alias Logs2="docker exec -it feminist_api Logs2"
+alias Logs2="docker exec -it 42api Logs2"
 ```
 
 ### Running the CLI locally
