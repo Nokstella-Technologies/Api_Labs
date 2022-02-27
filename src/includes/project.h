@@ -43,7 +43,7 @@ int editProject (int id, char *name ,char *lang, t_project *project);
 /**
  * @brief This function emulates repository functions in modern languages, make the connection with database and add a search a project.
  * 
- * @param res 
+ * @param res struct that stores all the projects. 
  * @return int 0 for OK and -1 for error.
  */
 int		searchProject (t_res *res);

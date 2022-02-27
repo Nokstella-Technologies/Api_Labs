@@ -22,30 +22,12 @@
 #include <arpa/inet.h>
 #include <mysql/mysql.h>
 
-typedef struct s_data {
-	char	n_line[124];
-	int		type;
-}			t_data;
-
-typedef struct s_project
-{
-	int	get;
-	int	post;
-	int	delete;
-	int	put;
-}		t_project;
-
-typedef struct s_users
-{
-	int	post;
-	int	delete;
-}		t_users;
 
 typedef struct s_routes {
-	t_project project;
-	t_users users;
-	int	autheticated;
-	int	other;
+	char	*method;
+	char	*uri;
+	char	*status;
+	char	*data;
 }			t_routes;
 
 typedef struct s_unix {
@@ -55,5 +37,9 @@ typedef struct s_unix {
 	char	*status;
 	int		list;
 }			t_unix;
+
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	**ft_split(char const *s, char c);
+char	*ft_strdup(const char *str);
 
 #endif

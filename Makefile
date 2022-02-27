@@ -5,7 +5,6 @@ SRC = shared/server.c shared/routes/*.c shared/middlewares/*.c \
 	shared/error/*.c \utils/GenerateLog.c utils/*/*.c modules/*/*/*.c \
 	database/connection.c
 
-SRC_LOGS = Cli/logs/clidb.c
 LIB_MONG =  libs/mongoose/*.c 
 LIB_SQL = `mysql_config --cflags --libs`
 LIB_JSON = -I/usr/include/jansson -ljansson -lssl -lcrypto -lrhonabwy
@@ -18,9 +17,11 @@ mysql:
 	gcc $(MYSQL) $(LIB_SQL) $(HEADER) -o create_db
 
 logs:
-	gcc $(SRC_LOGS) $(LIB_SQL) -o Logs -g3 
+	make -C ./Cli
+	mv ./Cli/Logs ./Logs
 
-logs_old:
-	gcc Cli/logs/main.c -o logs_old 
+logs2:
+	make -C ./Cli logs
+	mv ./Cli/Logs ./Logs
 
-.PHONY: install mysql all logs logs_old
+.PHONY: install mysql all logs logs2

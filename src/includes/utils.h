@@ -44,11 +44,11 @@ char			*ft_substr(char const *s, unsigned int start, size_t len);
 int				parseHeaderForId(const char *buff, const char *search);
 
 /**
- * @brief 
+ * @brief Function that comapares the hash to see if it's equal and valid, or  * if the they do not match and is invalid.
  * 
- * @param Pass 
- * @param EncryptedPass 
- * @return int 
+ * @param Pass string that contains the key given by the user.
+ * @param EncryptedPass encrypted by sha256 algorithym.
+ * @return int 0 for OK and -1 for error.
  */
 int				compareHash(unsigned char *Pass, unsigned char *EncryptedPass);
 
@@ -62,7 +62,7 @@ int				compareHash(unsigned char *Pass, unsigned char *EncryptedPass);
 char			*parseBodyContet(const char *buff,const char *camp);
 
 /**
- * @brief 
+ * @brief Funcion that encrypt a string with the sha256 alghoritym 
  * 
  * @param password 
  * @param passlen 
