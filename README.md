@@ -1,12 +1,25 @@
 <div>
-  <div align="center">
-    <img src="https://avatars.githubusercontent.com/u/91300229?s=400&u=9519ad33ea9af71ef9b8f4d249fd3155a89ab84c&v=4" width="200px">
-    <div align="center">
-     <img src="https://img.shields.io/github/workflow/status/vcwild/feminist-api/build-test-pipeline" />
-     <img src="https://img.shields.io/tokei/lines/github/vcwild/feminist-api"/>
-     <img src="https://img.shields.io/github/license/vcwild/feminist-api" />
-    </div>
-  </div>
+<p align="center">
+   <img src="https://github.com/Face-Tattoo/GNL-Benchmark/raw/main/files/faceTatoo.png" alt="Github-Explorer" width="500"/>
+</p>
+</div>
+<p align="center">
+  <a aria-label="Completed" href="https://www.42sp.org.br/">
+    <img src="https://img.shields.io/badge/42.sp-GNL-01ca73?logo="></img>
+  </a>
+  <a href="https://github.com/Face-Tattoo/Api_Labs/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Face-Tattoo/Api_Labs?color=01ca73">
+  </a> 
+
+  <a href="https://github.com/Face-Tattoo/Api_Labs/stargazers">
+    <img alt="Stargazers" src="https://img.shields.io/github/stars/Face-Tattoo/Api_Labs?color=01ca73&logo=github">
+  </a>
+</p>
+
+<div align="center">
+  <sub>Get Next Line BenchMark of 42. Make with ❤︎
+    </a>
+  </sub>
 </div>
 
 # FaceTattoo Projects API
@@ -204,7 +217,7 @@ make logs_local
 
 ## Contribute
 
-This project was made by [Luiz](https://github.com/luizlcezario), [Van Antonnie](https://github.com/VanAntonietti) and [Paulo](https://github.com/Yaten/Yaten)
+This project was made by [Luiz](https://github.com/luizlcezario), [Van](https://github.com/VanAntonietti) and [Paulo](https://github.com/Yaten/Yaten)
 Enjoyed the application? Please, consider contributing to the project.
 
 ## License
