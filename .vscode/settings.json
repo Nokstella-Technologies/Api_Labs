@@ -15,5 +15,8 @@
         "functional": "c",
         "io.h": "c",
         "typeinfo": "c"
-    }
+    },
+    "cSpell.words": [
+        "pmariadb"
+    ]
 }

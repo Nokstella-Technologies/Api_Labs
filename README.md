@@ -11,16 +11,31 @@
 
 # FaceTattoo Projects API
 
-API REST model that can be used in a variety of aplications, in this example, and by default, it's running a model of an API REST for access 42 projects. 
+API REST model that can be used in a variety of applications, in this example, and by default, it's running a model of an API REST for access 42 projects. 
+
+In this APiI we have a simple CRUD system in the /projects uri, and a simple authentication system in /users uri.
+
+To be authenticated, you need to create a user with the POST method. With the body:
+
+```json
+{
+  "name": "YOUR_NAME",
+  "password": "YOUR_PASSWORD"
+}
+```
+
+Now that you have a user you, can use the uri /authentication with the same body to get your JWT Token. 
+
+And with this JWT Token you need to put a BEARER auth in a header of http request, now you can use the routes of the API to create and delete in the /project and use the methods PUT, POST and DELETE.
+
+We have a demo page [here](http://api42.facetattoo.me)
 
 ## Table of contents
 
 - [Tech stack](#tech-stack)
 - [How to run](#how-to-run)
-- [How to develop](#development-builds)
+- [How to test](#how-to-test)
 - [How to use the CLI](#using-the-cli)
-- [Install the program](#install-the-program)
-- [API declaration](docs/api.md)
 - [Contribute](#contribute)
 - [License](#LICENSE)
 
@@ -58,7 +73,7 @@ sudo apt-get install docker && sudo apt-get install docker-compose
  Simply run our docker-compose.yml file with the following command:
 
 ```sh
-# This for getting the docker composo file:
+# This for getting the docker compose file:
 
 wget https://raw.githubusercontent.com/Face-Tattoo/Api_Labs/main/docker-compose.yml\?token\=GHSAT0AAAAAABRADJ3ZMAQ7E3OQUC3FZZBMYQ3WKJQ -o docker-compose.yml
 
@@ -72,10 +87,10 @@ docker-compose -f "docker-compose.yml" up -d --build
 ```
 ### Method 2 - Locally
 
-Clone the repository and install all dependecies.
+Clone the repository and install all dependencies.
 
 ```sh
-# Use the make install to install some dependecies, if some error occour, see the list of dependecies and try to install with another method. 
+# Use the make install to install some dependencies, if some error occur, see the list of dependencies and try to install with another method. 
 
 make install
 
@@ -85,7 +100,7 @@ docker run -d --name mariadb -p 3306:3306 -e MYSQL_ROOT_PASSWORD=mariadb -e MYSQ
 
 # Or install mariadb locally too
 
-sudo apt install maridb-server
+sudo apt install mariadb-server
 sudo mysql_secure_installation
 
 # For the password root
@@ -104,13 +119,13 @@ exit
 
 ## How to test
 
-We create tests with Insomnia that is an aplication that create and test http request, this is not a automated test but it is functional to verify if the server is running and receiving API REST instructions. 
+We create tests with Insomnia that is an application that create and test http request, this is not a automated test but it is functional to verify if the server is running and receiving API REST instructions. 
 
 - For this you will need to download [Insomnia](https://insomnia.rest/download)
 
 - Then you will need to import the insomnia_tests.json from the repository.
 
-- Open the Insomnia aplication.
+- Open the Insomnia application.
 
 - Go to the gear icon.
 
@@ -120,15 +135,21 @@ We create tests with Insomnia that is an aplication that create and test http re
 
 - In the dashboard enter in the document just created
 
-- After that, go to the DEBUG tab and enter in the Dropdown menu No enviroment
+- After that, go to the DEBUG tab and enter in the Dropdown menu No environment and Manage Environment
 
-- In this file, you need to change the in the IP in the file with your machine IP, the same IP that you used in previous steps.
-
-- It should look like this. 
+- In this file, you need to change the in the IP in the file with your machine IP, the same IP that you used in previous steps. It should look like this. 
 
 ```json
 {
-	"base_url": "YOUR_IP-HERE:8000",
+	"base_url": "YOUR_IP_HERE:8000",
+}
+```
+
+- If in the middle of test you get any authentication problems, you should run the User Create and Authentication routes, in that order. After that you should go again in the dropdown No environment and Manage Environment, and paste your acquired token in the toke field. It should look like this.
+
+```json
+{
+	"base_url": "YOUR_IP_HERE:8000",
 	"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MjgwMH0.ddOza6DgJ92OvnC5v5sx1bGW7-9wMUk5Rbey9SxELDI"
 }
 ```
