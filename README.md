@@ -9,15 +9,11 @@
   </a>
   <a href="https://github.com/Face-Tattoo/Api_Labs/commits/master">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Face-Tattoo/Api_Labs?color=01ca73">
-  </a> 
-
-  <a href="https://github.com/Face-Tattoo/Api_Labs/stargazers">
-    <img alt="Stargazers" src="https://img.shields.io/github/stars/Face-Tattoo/Api_Labs?color=01ca73&logo=github">
   </a>
 </p>
 
 <div align="center">
-  <sub>Api for the labs project. Make with ❤︎
+  <sub>API for the labs project. Make with ❤︎
     </a>
   </sub>
 </div>
