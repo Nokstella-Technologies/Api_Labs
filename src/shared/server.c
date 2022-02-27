@@ -18,8 +18,9 @@ int main(void)
 	mg_http_listen(&mgr, "http://0.0.0.0:8001", &routes, (void *) 1);
 	signal(SIGINT, signal_handler);
 	signal(SIGTERM, signal_handler);
+	printf("\e[0;32mServer Start!\e[0m\n");
 	for (;s_signo == 0;) mg_mgr_poll(&mgr, 1000);
 	mg_mgr_free(&mgr);
-	printf("Stop Server!");
+	printf("\e[0;31mStop Server!\e[0m\n");
 	return 0;
 }

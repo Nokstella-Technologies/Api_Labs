@@ -32,7 +32,6 @@ int main(int argc, char **argv)
 	{
 		printf("DB: Table projects dropped.\n");
 	}
-	//executa a query, no caso criar a table da db
 	if (mysql_query(con, "CREATE TABLE projects(id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(255), lang VARCHAR(255))")) {
 		finish_with_error(con);
 	}
@@ -47,7 +46,6 @@ int main(int argc, char **argv)
 	{
 		printf("DB: Table users dropped.\n");
 	}
-	//executa a query, no caso criar a table da db
 	if (mysql_query(con, "CREATE TABLE users(id INT PRIMARY KEY AUTO_INCREMENT, user VARCHAR(255) UNIQUE, password VARCHAR(255))")) {
 		finish_with_error(con);
 	}
@@ -62,7 +60,6 @@ int main(int argc, char **argv)
 	{
 		printf("DB: Table logs_api dropped.\n");
 	}
-	//executa a query de criar a table do log
 	if (mysql_query(con, "CREATE TABLE logs_api(id INT PRIMARY KEY AUTO_INCREMENT, method VARCHAR(255), uri VARCHAR(255), status INT, mensage VARCHAR(255), date VARCHAR(255))")) {
 		finish_with_error(con);
 	}
@@ -70,11 +67,7 @@ int main(int argc, char **argv)
 	{
 		printf("DB: Table logs_api created.\n");
 	}
-	
-	//INSERT INTO projects VALUES(NULL,'min3italk',NOW());,
 
-	//executa a query, dando insert em dado no db criado acima
-	//id INT, nome CHAR 255, lang CHAR 255
 	if (mysql_query(con, "INSERT INTO projects VALUES(1,'libft','c');\
 	INSERT INTO projects VALUES(2,'gnl','c');\
 	INSERT INTO projects VALUES(3,'printf','c');\
@@ -89,7 +82,6 @@ int main(int argc, char **argv)
 	{
 		printf("DB: Data insertion ok.\n");
 	}
-	//fechamos a conec
 	mysql_close(con);
 	printf("DB: Conection closed. Exiting...\n");
 	exit(0);

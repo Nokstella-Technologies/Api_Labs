@@ -1,29 +1,4 @@
-
-4c65ae 2 GenerateLog.c:22:send_log      :200:POST:/project:Create Project!:Sun Feb 27 12:30:50 2022
-
-4c6e88 2 GenerateLog.c:22:send_log      :200:GET:/project:Unable to complete your request.:Sun Feb 27 12:30:53 2022
-
-4c76c2 2 GenerateLog.c:22:send_log      :200:GET:/HTTP:Welcome!:Sun Feb 27 12:30:55 2022
-
-4c76c7 1 GenerateLog.c:20:send_log      :404:GET:/HTTP:Note Found:Sun Feb 27 12:30:55 2022
-:
-4c83a6 1 GenerateLog.c:20:send_log      :500:DELETE:/project:The Project was not deleted.:Sun Feb 27 12:30:58 2022
-:
-4c915d 2 GenerateLog.c:22:send_log      :200:PUT:/project:Edit Project!:Sun Feb 27 12:31:02 2022
-
-4c9ac0 1 GenerateLog.c:20:send_log      :500:DELETE:/project:The Project was not deleted.:Sun Feb 27 12:31:04 2022
-:
-4cb217 2 GenerateLog.c:22:send_log      :200:POST:/users:User created!:Sun Feb 27 12:31:10 2022
-
-4cbb57 2 GenerateLog.c:22:send_log      :200:POST:/authentication:Login In!:Sun Feb 27 12:31:12 2022
-
-4cc73b 1 GenerateLog.c:20:send_log      :406:DELETE:/users:Error to deleted user!:Sun Feb 27 12:31:15 2022
-:
-4dde6d 1 GenerateLog.c:20:send_log      :500:DELETE:/project:The Project was not deleted.:Sun Feb 27 12:32:27 2022
-:
-4e4815 2 GenerateLog.c:22:send_log      :200:GET:/project:Unable to complete your request.:Sun Feb 27 12:32:54 2022
-
-4e5bd6 2 GenerateLog.c:22:send_log      :200:DELETE:/project:Deleted Project!:Sun Feb 27 12:32:59 2022
-
-4eac48 2 GenerateLog.c:22:send_log      :200:DELETE:/users:Deleted user!:Sun Feb 27 12:33:20 2022
-
+ab5239 1 mongoose.c:3347:mg_open_listen failed http://0.0.0.0:8000, errno 98 (Address already in use)
+ab5239 1 mongoose.c:3602:mg_listen      Failed: http://0.0.0.0:8000, errno 98
+ab5239 1 mongoose.c:3347:mg_open_listen failed http://0.0.0.0:8001, errno 98 (Address already in use)
+ab5239 1 mongoose.c:3602:mg_listen      Failed: http://0.0.0.0:8001, errno 98
