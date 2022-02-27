@@ -39,25 +39,7 @@ API REST model that can be used in a variety of aplications, in this example, an
 
 ## How to run
 
-You can run this API locally, but you will need to run in parallel a MariaDB container. But we recommend you to run it using our docker-compose.yml file to create 2 containers. In this method is needed you to change the "0.0.0.0" IP in the file database.h and logs.h to your machine IP.
-
-### Method 1 - Use our container build
-
- Simply run our docker-compose.yml file with the following command:
-
-```sh
-docker-compose -f "docker-compose.yml" up -d --build
-
-# Open the application in your browser
-xdg-open http://localhost:8000
-```
-
-If you want to know how to use the CLI tool, you can check [this topic](#using-the-cli).
-
-
-## How to develop
-
-Please, follow the instructions below only if you intend to develop for this application.
+You can run this API locally, but you will need to run in parallel a MariaDB container. We strongly recommend you to run it using our docker-compose.yml file to create 2 containers. In this method is needed you to change the IP in the file docker-compose.yml to match yours, otherwise you'll have database connection problem. 
 
 ### Requirements
 
@@ -71,65 +53,91 @@ In order to install the build essentials, run the following command:
 sudo apt-get install docker && sudo apt-get install docker-compose
 ```
 
+### Method 1 - Use our container build
+
+ Simply run our docker-compose.yml file with the following command:
+
+```sh
+# This for getting the docker composo file:
+
+wget https://raw.githubusercontent.com/Face-Tattoo/Api_Labs/main/docker-compose.yml\?token\=GHSAT0AAAAAABRADJ3ZMAQ7E3OQUC3FZZBMYQ3WKJQ -o docker-compose.yml
+
+# Now change the docker compose file using the text editor of your like, in this example we will use vim. 
+
+nano docker-compose.yml
+
+# Now run the docker compose file, this may take a while depending on your internet connection. 
+
+docker-compose -f "docker-compose.yml" up -d --build
+```
+### Method 2 - Locally
+
+Clone the repository and install all dependecies.
+
+```sh
+# Use the make install to install some dependecies, if some error occour, see the list of dependecies and try to install with another method. 
+
+make install
+
+# Now initialize the mariadb database container
+
+docker run -d --name mariadb -p 3306:3306 -e MYSQL_ROOT_PASSWORD=mariadb -e MYSQL_DATABASE=42api mariadb:latest
+
+# Or install mariadb locally too
+
+sudo apt install maridb-server
+sudo mysql_secure_installation
+
+# For the password root
+mariadb
+
+# Create a DB this will entry in your mariadb
+mysql -pmariadb
+
+# This will create the DB
+CREATE DATABASE 42api;
+exit
+
+#Run the .sh file, this will create the tables in the DB and initialize the server. 
+./run.sh
+```
+
+## How to test
+
+We create tests with Insomnia that is an aplication that create and test http request, this is not a automated test but it is functional to verify if the server is running and receiving API REST instructions. 
+
+- For this you will need to download [Insomnia](https://insomnia.rest/download)
+
+- Then you will need to import the insomnia_tests.json from the repository.
+
+- Open the Insomnia aplication.
+
+- Go to the gear icon.
+
+- In the Data file, select the import data option.
+
+- Select From File and select the insomnia_tests.json file. 
+
+- In the dashboard enter in the document just created
+
+- After that, go to the DEBUG tab and enter in the Dropdown menu No enviroment
+
+- In this file, you need to change the in the IP in the file with your machine IP, the same IP that you used in previous steps.
+
+- It should look like this. 
+
+```json
+{
+	"base_url": "YOUR_IP-HERE:8000",
+	"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MjgwMH0.ddOza6DgJ92OvnC5v5sx1bGW7-9wMUk5Rbey9SxELDI"
+}
+```
+
+- After that, go to the TEST tab and select Run Tests. 
+
 ### Development server
 
-Follow along these steps:
-
-- Clone this repository
-
-- Test the server execution with `make run`.
-
-- Go to the root of your git clone
-
-- Run `make` to build the server
-
-- **IMPORTANT:** temporarily update your path to include the current program build.
-
-```sh
-export PATH=$PATH:$(pwd)
-```
-
-- Now run the program by executing the `feminist_api` command.
-
-This command will bind your terminal to the server and wait for requests.
-
-You can also run this as a background process:
-
-```sh
-feminist_api &
-```
-
-In this case, you can end the process with the following command:
-
-```sh
-kill $(pgrep feminist_api)
-```
-
-### Security (optional step)
-
-This application also supports HTTPS via SSL and TLS.
-
-You will need to install TLS libraries for your distribution:
-
-#### Security for Debian/Ubuntu
-
-```sh
-sudo apt-get install libssl-dev libmbedtls-dev
-```
-
-#### Security for Fedora/RHEL/CentOS
-
-```sh
-sudo yum install openssl-devel mbedtls-devel
-```
-
-Other distributions may require different libraries, please check the documentation of your package manager.
-
-After the installation, you can compile the dependencies and run the server as previosly mentioned [here](#development-server), but with the caveat that you need to add the TLS libraries to your execution:
-
-```sh
-make MBEDTLS_DIR=/your/path/to/mbedtls
-```
+Development server is ready-only only if you used the Method-1. Making a development server using the Method-2 is counterproductive.
 
 ## Using the CLI
 
