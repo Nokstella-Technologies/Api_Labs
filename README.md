@@ -204,7 +204,7 @@ make logs_local
 
 ## Contribute
 
-This project was made by [Luiz](https://github.com/luizlcezario), [Van Antonnie](https://github.com/Face-Tattoo/Api_Labs/commits?author=VanAntonietti) and [Paulo](https://github.com/Yaten/Yaten)
+This project was made by [Luiz](https://github.com/luizlcezario), [Van Antonnie](https://github.com/VanAntonietti) and [Paulo](https://github.com/Yaten/Yaten)
 Enjoyed the application? Please, consider contributing to the project.
 
 ## License
