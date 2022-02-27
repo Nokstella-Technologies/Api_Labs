@@ -35,11 +35,11 @@ char			**ft_split(char const *s, char c);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 
 /**
- * @brief 
+ * @brief Recovers an especific query of the uri.  
  * 
- * @param buff 
- * @param search 
- * @return int 
+ * @param buff all content of the header of the request.
+ * @param search the content to be searched.
+ * @return int id of the query.
  */
 int				parseHeaderForId(const char *buff, const char *search);
 
@@ -53,35 +53,35 @@ int				parseHeaderForId(const char *buff, const char *search);
 int				compareHash(unsigned char *Pass, unsigned char *EncryptedPass);
 
 /**
- * @brief 
+ * @brief Recovers an especific content from the body of the request. 
  * 
- * @param buff 
- * @param camp 
- * @return char* 
+ * @param buff all content of the body of the request.
+ * @param camp the name of the field that will be recovered. 
+ * @return char* value of the camp. 
  */
 char			*parseBodyContet(const char *buff,const char *camp);
 
 /**
- * @brief Funcion that encrypt a string with the sha256 alghoritym 
+ * @brief Funcion that encrypt a string with the sha256 algorithm.
  * 
- * @param password 
- * @param passlen 
- * @return unsigned char* 
+ * @param password password given by the user.
+ * @param passlen password lenght.
+ * @return unsigned char* encypted password.
  */
 unsigned char	*encrypt(unsigned char *password, int passlen);
 
 /**
- * @brief 
+ * @brief Create a JWT token that is given to the user so he can login in next time without give a password.
  * 
- * @return char* 
+ * @return char* return encrypted token.
  */
 char			*createJWT(void);
 
 /**
- * @brief 
+ * @brief Recovers the token from the requisition, so he can return it back.
  * 
- * @param buff 
- * @return char* 
+ * @param buff token passed by. 
+ * @return char* parsed token. 
  */
 char			*parseToken(const char *buff);
 

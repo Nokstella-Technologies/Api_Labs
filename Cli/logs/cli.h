@@ -38,8 +38,32 @@ typedef struct s_unix {
 	int		list;
 }			t_unix;
 
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	**ft_split(char const *s, char c);
-char	*ft_strdup(const char *str);
+/**
+ * @brief Copy the from the (S + START) to (LEN).
+ * 
+ * @param s the address of the start of the string
+ * @param start start the copy from here.
+ * @param len number of the bytes to be copy.
+ * @return a new address to with the copy.
+ */
+char			*ft_substr(char const *s, unsigned int start, size_t len);
+
+/**
+ * @brief Function separe the string S in a Matrix with the separator C
+ * 
+ * @param s string to be splited
+ * @param c the caracter that will be used to separate the string
+ * @return a pointer to the other pointer that have all the parters of the
+ * splited string S
+ */
+char			**ft_split(char const *s, char c);
+
+/**
+ * @brief Copy the STR to a new pointer.
+ * 
+ * @param str the string to be copy
+ * @return a new address with the same string of str.
+ */
+char			*ft_strdup(const char *str);
 
 #endif

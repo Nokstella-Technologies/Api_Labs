@@ -1,62 +1,187 @@
-# Processo Seletivo 42 São Paulo: 42Labs 2ª edição
+<div>
+  <div align="center">
+    <img src="https://avatars.githubusercontent.com/u/91300229?s=400&u=9519ad33ea9af71ef9b8f4d249fd3155a89ab84c&v=4" width="200px">
+    <div align="center">
+     <img src="https://img.shields.io/github/workflow/status/vcwild/feminist-api/build-test-pipeline" />
+     <img src="https://img.shields.io/tokei/lines/github/vcwild/feminist-api"/>
+     <img src="https://img.shields.io/github/license/vcwild/feminist-api" />
+    </div>
+  </div>
+</div>
 
-Nesse desafio você vai construir duas aplicações utilizando C: uma [API](#) e
-uma aplicação de interface de linha de comando([CLI](#)).
+# FaceTattoo Projects API
 
-## API
+API REST model that can be used in a variety of aplications, in this example, and by default, it's running a model of an API REST for access 42 projects. 
 
-![Cliente e API REST se comunicando por Requests e
-Responses](./img/01_client_api.png)
+## Table of contents
 
-A API que você irá construir poderá lidar com dados com formato e origem de sua
-escolha. Um exemplo seria fazer uma API que retorna o conteúdo de postagens de
-um blog.
+- [Tech stack](#tech-stack)
+- [How to run](#how-to-run)
+- [How to develop](#development-builds)
+- [How to use the CLI](#using-the-cli)
+- [Install the program](#install-the-program)
+- [API declaration](docs/api.md)
+- [Contribute](#contribute)
+- [License](#LICENSE)
 
-É necessário:
+## What is this?
 
-- Que sua API esteja de acordo com o modelo de arquitetura _REST_
-- Implementar pelo menos uma requisição do método `GET` no path `/`, retornando
-  alguma informação no formato JSON e status HTTP `200 OK`
-- Registrar logs em um arquivo; guardando informações sobre todas as requisições
-  e respostas(e.g. horário da requisição, método, etc.)
-  
-## Aplicação CLI
+## Tech stack
 
-![Exemplo CLI](./img/02_cli_example.png)
+- ANSI C
+- Docker
+- GNU Make
+- Mongoose web server
+- OpenSSL
+- Jansson
+- MySQL
+- Rhonabwy
 
-A aplicação CLI que você irá construir deverá consumir e processar o arquivo de
-logs gerado pela API REST. 
+## How to run
 
-É necessário:
+You can run this API locally, but you will need to run in parallel a MariaDB container. But we recommend you to run it using our docker-compose.yml file to create 2 containers. In this method is needed you to change the "0.0.0.0" IP in the file database.h and logs.h to your machine IP.
 
-- Que sua aplicação agrupe os dados dos logs e os mostrem de maneira legível no terminal
-- Que os dados possibilitem uma análise sobre as requisições
+### Method 1 - Use our container build
 
-## O que será avaliado
+ Simply run our docker-compose.yml file with the following command:
 
-- Código bem escrito e limpo
-- A documentação do seu código
-- Quais ferramentas foram usadas e por quê
-- Sua criatividade e capacidade de lidar com problemas diferentes
-- Se seu projeto está alinhado com o que foi proposto
+```sh
+docker-compose -f "docker-compose.yml" up -d --build
 
-## O mínimo necessário
+# Open the application in your browser
+xdg-open http://localhost:8000
+```
 
-- README.md com documentação contendo informações do projeto.
+If you want to know how to use the CLI tool, you can check [this topic](#using-the-cli).
 
-## Bônus
 
-Os seguintes itens não são obrigatórios, porém dão mais valor ao seu trabalho.
-Os destacados são mais significativos para nós.
+## How to develop
 
-- **Testes**
-- **Conteinerização das aplicações**
-- **API com conexão a um banco de dados(SQL ou NoSQL, sua escolha)**
-- **Parseamento de argumentos UNIX-like, podendo filtrar ou alterar comportamentos da aplicação(CLI)**
-- Cache básico(caso sua API se comunique com banco de dados)
-- Autenticação e autorização(API)
-- Lidar com requests simultâneos(API)
-- Cuidados especiais com otimização, padrões, entre outros
-- Pipelines de CI/CD
-- Utilização de algum serviço de computação na nuvem
-- Uso de ferramentas externas para diagramação e/ou planejamento das etapas de desenvolvimento
+Please, follow the instructions below only if you intend to develop for this application.
+
+### Requirements
+
+This API REST has only Debian based linux support, and all that you need to run is the Docker and Docker Compose package.
+
+#### DevTools for Debian/Ubuntu
+
+In order to install the build essentials, run the following command:
+
+```sh
+sudo apt-get install docker && sudo apt-get install docker-compose
+```
+
+### Development server
+
+Follow along these steps:
+
+- Clone this repository
+
+- Test the server execution with `make run`.
+
+- Go to the root of your git clone
+
+- Run `make` to build the server
+
+- **IMPORTANT:** temporarily update your path to include the current program build.
+
+```sh
+export PATH=$PATH:$(pwd)
+```
+
+- Now run the program by executing the `feminist_api` command.
+
+This command will bind your terminal to the server and wait for requests.
+
+You can also run this as a background process:
+
+```sh
+feminist_api &
+```
+
+In this case, you can end the process with the following command:
+
+```sh
+kill $(pgrep feminist_api)
+```
+
+### Security (optional step)
+
+This application also supports HTTPS via SSL and TLS.
+
+You will need to install TLS libraries for your distribution:
+
+#### Security for Debian/Ubuntu
+
+```sh
+sudo apt-get install libssl-dev libmbedtls-dev
+```
+
+#### Security for Fedora/RHEL/CentOS
+
+```sh
+sudo yum install openssl-devel mbedtls-devel
+```
+
+Other distributions may require different libraries, please check the documentation of your package manager.
+
+After the installation, you can compile the dependencies and run the server as previosly mentioned [here](#development-server), but with the caveat that you need to add the TLS libraries to your execution:
+
+```sh
+make MBEDTLS_DIR=/your/path/to/mbedtls
+```
+
+## Using the CLI
+
+The server logs can be accessed via the `ada` command line interface. This step assumes that the server is already running.
+
+### Running the CLI from within a docker container
+
+This step assumes that you already have the [server running in a docker container](#how-to-run).
+
+Execute `ada` commands through the docker interface:
+
+```sh
+docker exec -it feminist_api ada --help
+```
+
+You can also make an alias for that, to make this process easier:
+
+```sh
+alias ada="docker exec -it feminist_api ada"
+```
+
+Now you can run the CLI as if you were running it from your own terminal:
+
+```sh
+ada --help
+```
+
+### Running the CLI locally
+
+This step assumes that you followed the [how to develop](#how-to-develop) guide.
+
+Update your path with the current directory if you don't have it already:
+
+```sh
+export PATH=$PATH:$(pwd)
+```
+
+Simply execute any CLI interaction by using the `ada` command.
+
+```sh
+# e.g. get help from the CLI
+ada --help
+```
+
+## Install the program
+
+- It is also possible to install the program with `make install`. This will add the `feminist_api` server and the `ada` CLI to the `/usr/local/bin` directory permanently.
+
+## Contribute
+
+Enjoyed the application? Please, consider contributing to the project.
+
+## License
+
+This project is under the [GNU General Public License v3](LICENSE).

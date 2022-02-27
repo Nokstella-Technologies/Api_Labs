@@ -49,10 +49,10 @@ int editProject (int id, char *name ,char *lang, t_project *project);
 int		searchProject (t_res *res);
 
 /**
- * @brief 
+ * @brief Format the response from the database to the format JSON. 
  * 
- * @param result 
- * @param res 
+ * @param result result of the query in the db. 
+ * @param res struct that stores all the projects. 
  */
 void	format_search(MYSQL_RES *result, t_res *res);
 

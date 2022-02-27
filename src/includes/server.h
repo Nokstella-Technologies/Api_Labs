@@ -134,16 +134,16 @@ void	usersDeleteServices(struct mg_http_message *hm, t_res *res);
  * 
  * @param buf This is a message that will be passed and will be printed in the logs.txt.
  * @param len It's the number of character of a string. 
- * @param userdata 
+ * @param userdata Users data used by the mongoose library.
  */
 void	generateLogs(const void *buf, size_t len, void *userdata);
 
 /**
- * @brief 
+ * @brief function that create the response in json to be returned. 
  * 
- * @param type 
- * @param res 
- * @param message string that holds the error message. 
+ * @param type field for the json.
+ * @param res struct that will save response (status, message).
+ * @param message string that holds the error message.
  * @param status int that holds the status of the error. 
  */
 void	error(char *type ,t_res *res ,char *message,int status);
@@ -159,7 +159,8 @@ void	authenticated(void (service) (struct mg_http_message *, t_res *) ,
 	struct mg_http_message *hm, t_res *res);
 
 /**
- * @brief 
+ * @brief function that verify the status of res and, if ok they create a log 
+ * with message ok, with not, they create a message with the messenger error. 
  * 
  * @param hm struct that holds all info from the request like: URI, METHOD, BODY, HEADER, etc.
  * @param res struct that will save response (status, message).
