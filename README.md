@@ -5,7 +5,7 @@
 </div>
 <p align="center">
   <a aria-label="Completed" href="https://www.42sp.org.br/">
-    <img src="https://img.shields.io/badge/42.sp-GNL-01ca73?logo="></img>
+    <img src="https://img.shields.io/badge/42.sp-Api_Labs-01ca73?logo="></img>
   </a>
   <a href="https://github.com/Face-Tattoo/Api_Labs/commits/master">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Face-Tattoo/Api_Labs?color=01ca73">
@@ -17,7 +17,7 @@
 </p>
 
 <div align="center">
-  <sub>Get Next Line BenchMark of 42. Make with ❤︎
+  <sub>Api for the labs project. Make with ❤︎
     </a>
   </sub>
 </div>
