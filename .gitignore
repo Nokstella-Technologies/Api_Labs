@@ -1,3 +1,7 @@
-./server
-./create_db
-./Logs
+Cli/Logs
+Cli/Logs2
+
+server
+create_db
+Logs
+Logs2
