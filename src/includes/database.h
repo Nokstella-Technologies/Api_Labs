@@ -15,7 +15,7 @@
  * Infos for the database 
  */
 # define USER "root"
-# define HOST getenv("IP")
+# define HOST getenv("IP") == NULL ? "0.0.0.0" : getenv("ENV")
 # define PORT 3306
 # define PASS "mariadb"
 # define DB "42api"

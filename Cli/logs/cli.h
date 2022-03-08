@@ -3,7 +3,7 @@
 
 # define FileLog "./logs/logs.txt"
 # define Error 1
-# define Sucess 2
+# define Success 2
 # define USER "root"
 # define HOST getenv("IP") == NULL ? "0.0.0.0" : getenv("ENV")
 # define PORT 3306
