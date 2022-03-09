@@ -5,7 +5,7 @@
 # define Error 1
 # define Success 2
 # define USER "root"
-# define HOST getenv("IP") == NULL ? "0.0.0.0" : getenv("ENV")
+# define HOST getenv("IP")
 # define PORT 3306
 # define PASS "mariadb"
 # define DB "42api"
