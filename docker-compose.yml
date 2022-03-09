@@ -11,7 +11,7 @@ services:
 
   api:
     container_name: labs-api
-    image: apilabs:latest
+    image: vanantonietti/api42:latest
     depends_on:
       - db
     ports:
