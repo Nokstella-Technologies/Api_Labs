@@ -12,7 +12,7 @@ RUN apt update && apt install make -y \
 	gcc \
 	sudo \
 	dpkg \
-	libcurl4-gnutls-dev\
+	libcurl4-gnutls-dev \
 	libmicrohttpd-dev \
 	openssl \
 	net-tools \

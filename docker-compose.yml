@@ -1,5 +1,6 @@
 services:
   db:
+    container_name: labs-db
     image: mariadb
     restart: "always"
     ports:
@@ -9,8 +10,8 @@ services:
       MYSQL_DATABASE: "42api"
 
   api:
-    image: vanantonietti/api42:latest
-    restart: "always"
+    container_name: labs-api
+    image: apilabs:latest
     depends_on:
       - db
     ports:
